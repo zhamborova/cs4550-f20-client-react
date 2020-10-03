@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import App from './App';
-import Hello from "./Hello";
+
 import * as serviceWorker from './serviceWorker';
-import CourseListComponent from "./components/CourseListComponent";
-import SimpleCalculator from "./components/SimpleCalculator";
+import CourseTableComponent from "./components/CourseTableComponent/CourseTableComponent";
+
+import CourseManager from "./pages/course-manager/CourseManger";
 
 ReactDOM.render(
-  <CourseListComponent/>
+  <CourseManager/>
   ,
   document.getElementById('root')
 );

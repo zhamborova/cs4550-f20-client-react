@@ -1,0 +1,115 @@
+body{
+    background-color:  #f3f2f2!important;
+}
+
+.wbdv-new-course{
+    background-color: rgba(250,250,250, 0.4)!important;
+    border: none!important;
+    width:60%!important;
+    margin-left: 5px;
+}
+
+a{
+    text-decoration: none!important;
+}
+
+.navbar{
+    justify-content: start!important;
+    flex-wrap: nowrap!important;
+}
+
+.wbdv-course-manager{
+    margin: 0 20px!important;
+}
+
+
+
+
+.section{
+    margin: 0 18px;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important;
+}
+
+
+.table{
+    width: 80%!important;
+    margin: auto;
+}
+
+.wbdv-row > td{
+    background-color: white;
+}
+
+.home{
+    height: 100%;
+    background-color:  #f3f2f2;
+    padding-bottom: 20px;
+}
+
+.date{
+    width: 82%;
+    margin: 32px auto 11px;
+
+}
+
+.add-btn{
+    position: fixed;
+    bottom: 15px;
+    left: 93%;
+
+    z-index: 20;
+}
+
+
+.section-titles > p > .col {
+    padding-left: 0;
+
+}
+.wbdv-delete, .wbdv-sort, .wbdv-list-layout, .wbdv-grid-layout{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .wbdv-headers
+    {
+        display: none!important;
+    }
+    .navbar-brand{
+        display: none!important;
+    }
+
+    .add-btn{
+        left:80%
+    }
+}
+
+.wbdv-row .wbdv-title{
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.wbdv-add-course svg path{
+    fill:red;
+}
+
+.wbdv-add-course svg{
+    background-color: white;
+    border-radius: 20px;
+    width: 32px!important;
+    height: 32px!important;
+}
+
+.add-btn path{
+    fill:rgb(173, 0, 0);
+
+}
+
+.add-btn svg{
+    width:32px!important;
+    height: 32px;
+    cursor: pointer;
+
+}
