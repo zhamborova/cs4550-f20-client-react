@@ -1,0 +1,14 @@
+.wbdv-last-modified{
+
+
+}
+
+.wbdv-card.wbdv-title{
+ max-width: 100%!important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.fa-check-square, .fa-file-alt, .fa-pen-alt,.fa-trash{
+    cursor: pointer;
+}

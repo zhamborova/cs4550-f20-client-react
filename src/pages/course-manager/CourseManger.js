@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlusCircle, faPlusSquare} from '@fortawesome/free-solid-svg-icons'
 import CourseTableComponent from "../../components/CourseTableComponent/CourseTableComponent";
 import courseService from "../../services/CourseService";
+import CourseGridComponent from "../../components/CourseGridComponent/CourseGridComponent";
 class CourseManager extends  React.Component{
     state = {
-        isListView: true,
+        isListView: false,
         newCourseTitle: "",
         courses:[],
     }
@@ -74,7 +75,7 @@ class CourseManager extends  React.Component{
 
           {this.state.isListView ?
           <CourseTableComponent courses={this.state.courses} changeView={this.changeView}/> :
-            null
+          <CourseGridComponent courses={this.state.courses} changeView={this.changeView} />
           }
           <span className="add-btn wbdv-button"
                 onClick={()=>this.createCourse()}>

@@ -46,12 +46,9 @@ class CourseTableComponent extends React.Component {
                   <p className="col-1 wbdv-button wbdv-grid-layout " onClick={()=>this.props.changeView()}>
                     <FontAwesomeIcon icon={faTh} />
                   </p>
-                  <p className="col-1 wbdv-button wbdv-list-layout" onClick={()=>this.props.changeView()}>
-                      <FontAwesomeIcon icon={faList} />
-                  </p>
                   <p className="col-1 wbdv-header wbdv-sort">
                       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="28" height="28" x="0" y="0"
-                           viewBox="0 0 432 432" style={{"enable-background":"new 0 0 512 512"}} ><g>
+                           viewBox="0 0 432 432" style={{"enableBackground":"new 0 0 512 512"}} ><g>
 <g xmlns="http://www.w3.org/2000/svg">
 	<g>
 		<g>
