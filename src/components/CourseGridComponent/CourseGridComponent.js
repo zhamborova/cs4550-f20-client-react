@@ -3,7 +3,7 @@ import courseService from "../../services/CourseService";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList, faTh} from "@fortawesome/free-solid-svg-icons";
 import CourseCardComponent from "../CourseCardComponent/CourseCardComponet";
-
+import "./CourseGridComponent.style.css"
 class CourseGridComponent extends React.Component{
     state = {
        courses:[]
@@ -36,10 +36,10 @@ class CourseGridComponent extends React.Component{
     render() {
 
         return(
-            <div className="container">
+            <div className="container-fluid">
                 <div className="name">
                     <div className="wbdv-headers row">
-                        <p className="col-6 pl-0 wbdv-header wbdv-title">Recent Documents</p>
+                        <p className="col-6 mr-auto pl-0 wbdv-header wbdv-title">Recent Documents</p>
                         <p className="col-2 wbdv-header wbdv-owner">Owned by </p>
                         <p className="col-1 wbdv-button wbdv-list-layout" onClick={()=>this.props.changeView()}>
                             <FontAwesomeIcon icon={faList} />
@@ -70,7 +70,7 @@ class CourseGridComponent extends React.Component{
                     </div>
                 </div>
 
-                <div className="container row justify-content-between pt-2 pb-2 pr-5 pl-5 m-0">
+                <div className="container wbdv-cards-container row  pt-2 pb-2">
                     {console.log(this.state)}
                     {
                         this.state.courses.map(course =>

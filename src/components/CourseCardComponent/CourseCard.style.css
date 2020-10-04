@@ -1,7 +1,4 @@
-.wbdv-last-modified{
 
-
-}
 
 .wbdv-card.wbdv-title{
  max-width: 100%!important;
@@ -11,4 +8,10 @@
 }
 .fa-check-square, .fa-file-alt, .fa-pen-alt,.fa-trash{
     cursor: pointer;
+}
+
+
+
+.card{
+    transform: scale(0.9);
 }

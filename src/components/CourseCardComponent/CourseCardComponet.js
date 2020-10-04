@@ -32,8 +32,9 @@ class CourseCardComponent extends React.Component {
 
     render() {
         console.log("here")
-        return (<div className="card col-auto m-2 " style={{"width": "18rem"}}>
-                <img className="card-img-top" src="..." alt="Card image cap"/>
+        let columns = "col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 "
+        return (<div className={"card m-1 wbdv-card "+ columns} >
+                <img className="card-img-top" src="https://lh3.google.com/u/0/d/1BWKOyq9agNMsd2n_c3XShuR5T5yVXKSpsFQk9uS1M_Y=w416-iv134" alt="Card image cap"/>
                     <div className="card-body">
 
                             {this.state.editing ?
