@@ -8,7 +8,7 @@ import CourseGridComponent from "../../components/CourseGridComponent/CourseGrid
 class CourseManager extends  React.Component{
     state = {
         isListView: false,
-        newCourseTitle: "",
+        newCourseTitle: "New Course",
         courses:[],
     }
 
@@ -60,7 +60,7 @@ class CourseManager extends  React.Component{
                  value={this.state.newCourseTitle}
             onChange={(e)=>{this.setState({newCourseTitle:e.target.value})}}/>
               <button className="btn wbdv-button wbdv-add-course" type="submit"
-                      onClick={()=> {this.setState({newCourseTitle:""});
+                      onClick={()=> {this.setState({newCourseTitle:"New Course"});
                                     this.createCourse(this.state.newCourseTitle);
                                   }}>
               <FontAwesomeIcon icon={faPlusCircle} />

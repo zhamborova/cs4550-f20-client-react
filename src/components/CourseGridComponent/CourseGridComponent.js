@@ -1,7 +1,7 @@
 import React from "react";
 import courseService from "../../services/CourseService";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faList, faTh} from "@fortawesome/free-solid-svg-icons";
+import {faList} from "@fortawesome/free-solid-svg-icons";
 import CourseCardComponent from "../CourseCardComponent/CourseCardComponet";
 import "./CourseGridComponent.style.css"
 class CourseGridComponent extends React.Component{
@@ -70,8 +70,7 @@ class CourseGridComponent extends React.Component{
                     </div>
                 </div>
 
-                <div className="container wbdv-cards-container row  pt-2 pb-2">
-                    {console.log(this.state)}
+                <div className="row justify-content-center wbdv-cards-container pt-2 pb-2">
                     {
                         this.state.courses.map(course =>
                             <CourseCardComponent
