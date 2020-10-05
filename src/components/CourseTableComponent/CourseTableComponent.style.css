@@ -1,0 +1,38 @@
+.wbdv-list-headers{
+    display: flex ;
+
+    color: rgb(107, 100, 100)!important;
+    background-color: rgb(240, 240, 240);
+    border-bottom: 1px solid #dee2e6;
+    flex-wrap: nowrap!important;
+    margin-right: 0;
+    padding: 20px 0 0;
+    width: 84%;
+    margin-left: 9%;
+}
+
+
+
+@media (max-width: 800px) {
+    .wbdv-last-modified,.wbdv-modified-date {
+        display: none;
+    }
+    .wbdv-owner{
+        display: initial;
+    }
+}
+@media (max-width: 573px) {
+    .wbdv-owner{
+        display: none;
+    }
+    .wbdv-grid-layout{
+        margin-left: auto;
+    }
+
+}
+@media (min-width: 770px) {
+    .wbdv-last-modified,.wbdv-modified-date {
+        display: initial;
+    }
+
+}

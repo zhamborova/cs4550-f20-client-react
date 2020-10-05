@@ -37,8 +37,8 @@ class CourseGridComponent extends React.Component{
 
         return(
             <div className="container-fluid">
-                <div className="name">
-                    <div className="wbdv-headers row">
+
+                    <div className="wbdv-grid wbdv-headers row">
                         <p className="col-6 mr-auto pl-0 wbdv-header wbdv-title">Recent Documents</p>
                         <p className="col-2 wbdv-header wbdv-owner">Owned by </p>
                         <p className="col-1 wbdv-button wbdv-list-layout" onClick={()=>this.props.changeView()}>
@@ -67,7 +67,6 @@ class CourseGridComponent extends React.Component{
                             </g></svg>
                         </p>
 
-                    </div>
                 </div>
 
                 <div className="row justify-content-center wbdv-cards-container pt-2 pb-2">

@@ -1,16 +1,5 @@
 
-.wbdv-headers{
-    display: flex ;
 
-    color: rgb(107, 100, 100)!important;
-    background-color: rgb(240, 240, 240);
-    border-bottom: 1px solid #dee2e6;
-    flex-wrap: nowrap!important;
-    margin-right: 0;
-    padding: 20px 0 0;
-    width: 84%;
-    margin-left: 9%;
-}
 .wbdv-header{
     padding-left: 9px!important;
 }

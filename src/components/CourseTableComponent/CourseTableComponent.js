@@ -39,10 +39,10 @@ class CourseTableComponent extends React.Component {
     return(
       <div className="container">
           <div className="name">
-              <div className="wbdv-headers row">
+              <div className="wbdv-list-headers row">
                   <p className="col-6 pl-0 wbdv-header wbdv-title">Title</p>
-                  <p className="col-2 wbdv-header wbdv-owner">Owned by </p>
-                  <p className="col-3 wbdv-header wbdv-last-modified">Last modified by me</p>
+                  <p className="col-sm-3 col-md-2 wbdv-header wbdv-owner">Owned by</p>
+                  <p className="col-4 wbdv-header wbdv-last-modified">Last modified by me</p>
                   <p className="col-1 wbdv-button wbdv-grid-layout " onClick={()=>this.props.changeView()}>
                     <FontAwesomeIcon icon={faTh} />
                   </p>

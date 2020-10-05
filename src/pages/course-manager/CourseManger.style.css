@@ -73,10 +73,6 @@ a{
 }
 
 @media screen and (max-width: 600px) {
-    .wbdv-headers
-    {
-        display: none!important;
-    }
     .navbar-brand{
         display: none!important;
     }

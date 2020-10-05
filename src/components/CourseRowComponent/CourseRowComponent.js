@@ -56,8 +56,10 @@ class CourseRowComponent extends React.Component {
           }
           </React.Fragment>
         </td>
+
           <td className={"col-2  d-none d-sm-block wbdv-row wbdv-owner" + highlighted }>{this.props.course.owner}</td>
-          <td className={"col-3 d-none d-sm-block wbdv-row wbdv-modified-date" + highlighted }>
+          <td className="col-3 d-sm-block d-md-none"/>
+          <td className={"col-3 d-none d-md-block wbdv-row wbdv-modified-date" + highlighted }>
           {this.props.course.lastUpdated}</td>
 
           <td className={"col-2  wbdv-row wbdv-button wbdv-delete" + highlighted }>

@@ -31,8 +31,8 @@ class CourseCardComponent extends React.Component {
     }
 
     render() {
-        console.log("here")
-        let columns = "col-xs-12 col-sm-5 col-md-3 col-lg-c-5 col-xl-2"
+
+        let columns = "col-xs-12 col-sm-5 col-md-3 col-lg-c col-xl-2"
         return (<div className={"card m-1 wbdv-card "+ columns} >
                 <img className="card-img-top" src="https://lh3.google.com/u/0/d/1BWKOyq9agNMsd2n_c3XShuR5T5yVXKSpsFQk9uS1M_Y=w416-iv134" alt="Card image cap"/>
                     <div className="card-body">
