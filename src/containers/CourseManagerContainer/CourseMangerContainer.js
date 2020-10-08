@@ -1,10 +1,10 @@
 import React from 'react'
-import "./CourseManger.style.css"
+import "./CourseMangerContainer.style.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlusCircle, faPlusSquare} from '@fortawesome/free-solid-svg-icons'
-import CourseTableComponent from "../../components/CourseTableComponent/CourseTableComponent";
+import CourseTableContainer from "../../containers/CourseTableContainer/CourseTableContainer";
 import courseService from "../../services/CourseService";
-import CourseGridComponent from "../../components/CourseGridComponent/CourseGridComponent";
+import CourseGridContainer from "../../containers/CourseGridContainer/CourseGridContainer";
 class CourseManager extends  React.Component{
     state = {
         isListView: true,
@@ -74,8 +74,8 @@ class CourseManager extends  React.Component{
           </nav>
 
           {this.state.isListView ?
-          <CourseTableComponent courses={this.state.courses} changeView={this.changeView}/> :
-          <CourseGridComponent courses={this.state.courses} changeView={this.changeView} />
+          <CourseTableContainer courses={this.state.courses} changeView={this.changeView}/> :
+          <CourseGridContainer courses={this.state.courses} changeView={this.changeView} />
           }
           <span className="add-btn wbdv-button"
                 onClick={()=>this.createCourse()}>

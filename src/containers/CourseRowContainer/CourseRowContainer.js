@@ -2,11 +2,11 @@ import React from "react";
 import {updateCourse} from "../../services/CourseService";
 import {faCheckSquare, faFileAlt, faPenAlt} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import "./CourseRowComponent.style.css"
+import "./CourseRowContainer.style.css"
 import {Link} from "react-router-dom";
 
 
-class CourseRowComponent extends React.Component {
+class CourseRowContainer extends React.Component {
   state = {
     editing: false,
     courseTitle: "",
@@ -85,4 +85,4 @@ class CourseRowComponent extends React.Component {
   }
 }
 
-export default CourseRowComponent
+export default CourseRowContainer

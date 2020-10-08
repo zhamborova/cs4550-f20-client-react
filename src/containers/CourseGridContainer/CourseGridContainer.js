@@ -2,9 +2,9 @@ import React from "react";
 import courseService from "../../services/CourseService";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList} from "@fortawesome/free-solid-svg-icons";
-import CourseCardComponent from "../CourseCardComponent/CourseCardComponet";
-import "./CourseGridComponent.style.css"
-class CourseGridComponent extends React.Component{
+import CourseCardComponent from "../CourseCardContainer/CourseCardContainer";
+import "./CourseGridContainer.style.css"
+class CourseGridContainer extends React.Component{
     state = {
        courses:[]
     }
@@ -87,4 +87,4 @@ class CourseGridComponent extends React.Component{
     }
 }
 
-export default  CourseGridComponent;
+export default  CourseGridContainer;

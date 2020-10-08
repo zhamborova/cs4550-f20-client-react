@@ -1,10 +1,10 @@
 import React from 'react';
-import ModuleList from "../../components/ModuleListComponent/ModuleListComponent";
-import LessonTabs from "../../components/LessonTabsComponent/LessonTabs";
-import TopicPills from "../../components/TopicPillsComponent/TopicPills";
-import "./CourseEditor.style.css"
+import ModuleList from "../ModuleListComponent/ModuleListComponent";
+import LessonTabs from "../LessonTabsComponent/LessonTabs";
+import TopicPills from "../TopicPillsComponent/TopicPills";
+import "./CourseEditorComponent.style.css"
 
-class CourseEditor extends React.Component{
+class CourseEditorComponent extends React.Component{
 
     render() {
 
@@ -43,4 +43,4 @@ class CourseEditor extends React.Component{
 
 }
 
-export default CourseEditor;
+export default CourseEditorComponent;

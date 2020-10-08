@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import * as serviceWorker from './serviceWorker';
-import CourseManager from "./pages/CourseManager/CourseManger";
-import CourseEditor from "./pages/CourseEditor/CourseEditor";
+import CourseManager from "./containers/CourseManagerContainer/CourseMangerContainer";
+import CourseEditorComponent from "./components/CourseEditor/CourseEditorComponent";
 
 import Route from "react-router-dom/es/Route";
 import {BrowserRouter} from "react-router-dom";
@@ -12,7 +12,7 @@ import {BrowserRouter} from "react-router-dom";
 ReactDOM.render(
     <BrowserRouter>
         <Route exact path={"/"} component={CourseManager}/>
-        <Route exact path={"/editor/:courseId"} component={CourseEditor}/>
+        <Route exact path={"/editor/:courseId"} component={CourseEditorComponent}/>
     </BrowserRouter>
   ,
   document.getElementById('root')

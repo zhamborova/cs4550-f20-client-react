@@ -2,7 +2,7 @@ import React from "react";
 import {updateCourse} from "../../services/CourseService";
 import {faCheckSquare, faFileAlt, faPenAlt,faTrash} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import  "./CourseCard.style.css"
+import "./CourseCardContainer.style.css"
 
 class CourseCardComponent extends React.Component {
     state = {

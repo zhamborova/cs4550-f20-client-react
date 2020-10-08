@@ -1,11 +1,11 @@
 import React from "react";
-import CourseRowComponent from "../CourseRowComponent/CourseRowComponent";
+import CourseRowContainer from "../CourseRowContainer/CourseRowContainer";
 import courseService from "../../services/CourseService";
 import { faList, faTh} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import "./CourseTableComponent.style.css"
+import "./CourseTableContainer.style.css"
 
-class CourseTableComponent extends React.Component {
+class CourseTableContainer extends React.Component {
   state = {
     courses: []
   }
@@ -76,7 +76,7 @@ class CourseTableComponent extends React.Component {
           <tbody>
           {
             this.state.courses.map(course =>
-              <CourseRowComponent
+              <CourseRowContainer
                 key={course._id}
                 deleteCourse={this.deleteCourse}
                 course={course}/>
@@ -90,4 +90,4 @@ class CourseTableComponent extends React.Component {
   }
 }
 
-export default CourseTableComponent
+export default CourseTableContainer
