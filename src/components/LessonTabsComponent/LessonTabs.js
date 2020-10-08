@@ -1,27 +1,27 @@
 import React from "react";
+import './LessonTabs.style.css'
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const LessonTabs = () => {
 
-   return (<ul className="nav nav-tabs">
+   return (<div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+       <ul className="nav nav-tabs wbdv-lesson-tabs">
+       {[1, 2, 3, 4, 5].map((i) => {
+           return (
+               <li className="nav-item">
+                   <a href="#" className={`nav-link  ${i==4 ? ` active`: `` }`}>Lesson {i}</a>
+               </li>)
+       })
+       }
        <li className="nav-item">
-           <a href="#" className="nav-link">Lesson 1</a>
+           <FontAwesomeIcon icon={faPlus} className="ml-auto wbdv-add-lesson "/>
        </li>
-       <li className="nav-item">
-           <a href="#" className="nav-link active">Lesson 2</a>
-       </li>
-       <li className="nav-item">
-           <a href="#" className="nav-link">Lesson 3</a>
-       </li>
-       <li className="nav-item">
-           <a href="#" className="nav-link">Lesson 4</a>
-       </li>
-       <li className="nav-item">
-           <a href="#" className="nav-link">Lesson 5</a>
-       </li>
-       <li className="nav-item">
-           <a href="#" className="nav-link">Lesson 1</a>
-       </li>
-   </ul>)
+
+   </ul>
+
+   </div>)
 
 }
 

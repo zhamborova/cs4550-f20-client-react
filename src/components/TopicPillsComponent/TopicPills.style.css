@@ -1,0 +1,23 @@
+.wbdv-pills{
+    padding: 20px;
+
+}
+ .wbdv-pills .nav-link {
+     color: #fff;
+     background-color: #5f656a!important;
+     margin: 10px;
+     height: fit-content;
+}
+ .wbdv-pills .nav-link.active{
+     background-color: #2d3d4e!important;
+ }
+
+ .wbdv-add-topic{
+     margin: 16px 20px;
+     width: 2rem!important;
+     height: 2rem;
+     cursor: pointer;
+ }
+.wbdv-pills:last-child{
+    margin: 10px;
+}

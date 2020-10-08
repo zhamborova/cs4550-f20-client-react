@@ -3,6 +3,7 @@ import {updateCourse} from "../../services/CourseService";
 import {faCheckSquare, faFileAlt, faPenAlt} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./CourseRowComponent.style.css"
+import {Link} from "react-router-dom";
 
 
 class CourseRowComponent extends React.Component {
@@ -50,8 +51,8 @@ class CourseRowComponent extends React.Component {
           {
             this.state.editing === false &&
 
-            <a href="../course-editor/course-editor.template.client.html" className="wbdv-row wbdv-title">
-            {this.state.course.title}</a>
+            <Link to={`editor/${this.state.course._id}`} className="wbdv-row wbdv-title">
+            {this.state.course.title}</Link>
 
           }
           </React.Fragment>

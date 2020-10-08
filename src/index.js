@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css"
-import App from './App';
-
 import * as serviceWorker from './serviceWorker';
-import CourseTableComponent from "./components/CourseTableComponent/CourseTableComponent";
+import CourseManager from "./pages/CourseManager/CourseManger";
+import CourseEditor from "./pages/CourseEditor/CourseEditor";
 
-import CourseManager from "./pages/course-manager/CourseManger";
+import Route from "react-router-dom/es/Route";
+import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
-  <CourseManager/>
+    <BrowserRouter>
+        <Route exact path={"/"} component={CourseManager}/>
+        <Route exact path={"/editor/:courseId"} component={CourseEditor}/>
+    </BrowserRouter>
   ,
   document.getElementById('root')
 );

@@ -1,0 +1,30 @@
+@media (max-width: 720px){
+  .wbdv-lesson-tabs{
+    justify-content: center;
+ }
+
+  .wbdv-lesson-tabs > .nav-item{
+
+      padding: 10px
+  }
+}
+.wbdv-lesson-tabs > .nav-item > a{
+    color:rgb(195, 189, 189)
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+    border: none!important;
+    border-radius: initial;
+    background-color: #343a40!important;
+}
+
+.wbdv-add-lesson{
+
+    color: white;
+    width: 1.5em!important;
+    height:1.5em;
+    margin: 10px;
+    cursor: pointer;
+
+}
+

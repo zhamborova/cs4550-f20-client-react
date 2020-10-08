@@ -7,7 +7,7 @@ import courseService from "../../services/CourseService";
 import CourseGridComponent from "../../components/CourseGridComponent/CourseGridComponent";
 class CourseManager extends  React.Component{
     state = {
-        isListView: false,
+        isListView: true,
         newCourseTitle: "New Course",
         courses:[],
     }
