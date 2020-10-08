@@ -3,6 +3,7 @@ import {updateCourse} from "../../services/CourseService";
 import {faCheckSquare, faFileAlt, faPenAlt,faTrash} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./CourseCardContainer.style.css"
+import {Link} from "react-router-dom";
 
 class CourseCardComponent extends React.Component {
     state = {
@@ -42,7 +43,9 @@ class CourseCardComponent extends React.Component {
                                     className="form-group ml-1 mb-0"
                                     onChange={this.updateTitle}
                                     value={this.state.course.title}/> :
-                                <p className="wbdv-card wbdv-title card-title"> {this.state.course.title}</p>
+                                <Link to={`editor/${this.state.course._id}`}
+                                      className="wbdv-card wbdv-title card-title">
+                                    {this.state.course.title}</Link>
                             }
 
 

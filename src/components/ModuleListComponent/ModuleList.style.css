@@ -13,6 +13,7 @@
     background-color: #343a40!important;
     color: #dee2e6;
     height: auto;
+    cursor: pointer;
 }
 
 .wbdv-module-list > .list-group-item:last-child{
