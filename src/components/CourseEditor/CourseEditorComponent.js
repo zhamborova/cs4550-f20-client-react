@@ -3,6 +3,9 @@ import ModuleList from "../ModuleListComponent/ModuleListComponent";
 import LessonTabs from "../LessonTabsComponent/LessonTabs";
 import TopicPills from "../TopicPillsComponent/TopicPills";
 import "./CourseEditorComponent.style.css"
+import ModuleContainer from "../../containers/ModuleContainer";
+import LessonContainer from "../../containers/LessonContainer";
+import TopicPillsContainer from "../../containers/TopicPillsContainer";
 
 class CourseEditorComponent extends React.Component{
 
@@ -16,7 +19,7 @@ class CourseEditorComponent extends React.Component{
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <LessonTabs className="mr-auto"/>
+                    <LessonContainer className="mr-auto"/>
 
                 </nav>
 
@@ -28,12 +31,12 @@ class CourseEditorComponent extends React.Component{
                                 aria-expanded="false" aria-label="Toggle navigation">
                             <span >Modules</span>
                         </button>
-                        <ModuleList />
+                        <ModuleContainer />
 
                     </nav>
 
 
-                    <TopicPills className="col-8"/>
+                    <TopicPillsContainer className="col-8"/>
                 </div>
             </div>
 

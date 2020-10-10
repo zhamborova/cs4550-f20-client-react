@@ -1,24 +1,29 @@
 import React from "react";
 import "./ModuleList.style.css"
-import {faPlus, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import ModuleComponent from "../ModuleComponent/ModuleComponent";
 
 
 
-const ModuleList = () =>{
+const ModuleList = ({modules,deleteModule, updateModule, createModule}) =>{
 
-    return (
-        <ul className="list-group wbdv-module-list" id="modules">
-            {[1, 2, 3, 4, 5].map((i) => {
-                return (<li className={`list-group-item ${i==2 ? `active`: `` }`}>Module {i}
-                    <FontAwesomeIcon icon={faTimes} className="float-right module-add-btn"/></li>)
-            })
+    return (<ul className="list-group wbdv-module-list" id="modules">
+            {modules.map((module) => {
+                return <ModuleComponent key={module._id}
+                                         deleteModule={deleteModule}
+                                         updateModule={updateModule}
+                                         module={module}/>
+               })
             }
             <li className="list-group-item d-flex">
-            <FontAwesomeIcon icon={faPlus} className="ml-auto wbdv-add-module"/>
+            <FontAwesomeIcon icon={faPlus}
+                             className="ml-auto wbdv-add-module"
+                           onClick={()=>(createModule())}/>
             </li>
             </ul>
     )
 }
 
 export default ModuleList;
+

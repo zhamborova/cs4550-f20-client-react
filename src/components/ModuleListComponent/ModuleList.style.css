@@ -45,3 +45,17 @@
         width: 100%!important;
     }
 }
+
+
+.module-edit-btn{
+    width: 12px!important;
+    height: 12px;
+    margin: auto 0;
+}
+
+
+.module-delete-btn, .module-update-btn{
+    width: 16px!important;
+    height: 16px;
+    margin: auto 0;
+}

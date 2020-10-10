@@ -3,18 +3,28 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import * as serviceWorker from './serviceWorker';
-import CourseManager from "./containers/CourseManagerContainer/CourseMangerContainer";
-import CourseEditorComponent from "./components/CourseEditor/CourseEditorComponent";
+import App from "./App";
+import {Provider} from "react-redux";
+import {combineReducers, createStore} from "redux";
+import moduleReducer from "./reducers/moduleReducer";
+import lessonReducer from "./reducers/lessonReducer";
+import topicReducer from "./reducers/topicReducer";
 
-import Route from "react-router-dom/es/Route";
-import {BrowserRouter} from "react-router-dom";
+
+const rootReducer = combineReducers({
+    moduleReducer: moduleReducer,
+    lessonReducer:lessonReducer,
+    topicReducer: topicReducer
+})
+
+const store = createStore(rootReducer)
+
+
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Route exact path={"/"} component={CourseManager}/>
-        <Route exact path={"/editor/:courseId"} component={CourseEditorComponent}/>
-    </BrowserRouter>
-  ,
+    <Provider store={store}>
+    <App/>
+    </Provider>,
   document.getElementById('root')
 );
 
