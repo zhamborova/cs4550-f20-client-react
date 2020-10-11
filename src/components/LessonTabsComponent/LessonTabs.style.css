@@ -14,9 +14,10 @@
 .wbdv-lesson-tab.active {
     color: white;
     border: none!important;
-    border-radius: initial;
     background-color: #2b3034!important;
     padding: 2px 5px;
+    border-radius: 5px;
+    margin: 3px;
 }
 
 .wbdv-add-lesson{
@@ -36,7 +37,7 @@
     display: flex;
     height: min-content;
     color:white;
-    margin: 0 4px;
+    margin: auto 4px;
 }
 .wbdv-lesson-input{
     margin: 6px 2px;

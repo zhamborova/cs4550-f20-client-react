@@ -8,7 +8,7 @@ const Lesson = ({lesson,updateLesson, deleteLesson}) => {
     return  <li className={`nav-item wbdv-lesson-tab ${lesson.editing? `active`: ``}`} >
         {lesson.editing ?
             <>
-                <input className="input-group wbdv-lesson-input"
+                <input className=" form-control wbdv-lesson-input"
                        value={lesson.title}
                        onChange={(event) => updateLesson({...lesson, title: event.target.value})}/>
                 <FontAwesomeIcon icon={faCheck} className="lesson-update-btn"

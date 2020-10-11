@@ -8,34 +8,50 @@ const initialState = {
     },
         {
             _id: 2,
-            title: "Topic  2",
+            title: "Topic 2",
             editing: false
         },
 
         {
             _id: 3,
-            title: "Topic  3",
+            title: "Topic 3",
             editing: false
         },
         {
             _id: 4,
-            title: "Topic  4",
+            title: "Topic 4",
             editing: false
         },
 
         {
             _id: 5,
-            title: "Topic  5",
+            title: "Topic 5",
             editing: false
         },
  ]}
 
 
  const topicReducer = (state=initialState, action) => {
+
      switch (action.type) {
-         case DELETE_TOPIC:
-         case UPDATE_TOPIC:
          case CREATE_TOPIC:
+             console.log("and here")
+             return {
+                 topics: [
+                     ...state.topics,
+                     {
+                         _id: (Date.now()) + "",
+                         title: "New Topic",
+                         editing:false}]}
+
+         case DELETE_TOPIC:
+             return {
+                 topics: state.topics.filter(topic => action.id !== topic._id)
+             }
+         case UPDATE_TOPIC:
+             return {
+                 topics: state.topics.map(topic => topic._id === action.topic._id ? action.topic : topic)
+             }
 
          default: return state;
      }

@@ -1,5 +1,6 @@
 .wbdv-pills{
     padding: 20px;
+    height: fit-content;
 
 }
  .wbdv-pills .nav-link {
@@ -20,4 +21,17 @@
  }
 .wbdv-pills:last-child{
     margin: 10px;
+}
+
+.wbdv-pill{
+    height: fit-content;
+    margin: auto;
+}
+.topic-edit-btn{
+    margin: auto 10px auto 8px;
+}
+
+.topic-update-btn, .topic-delete-btn{
+    margin: auto 2px;
+    cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter} from "react-router-dom";
-import Route from "react-router-dom/es/Route";
+import {Route} from "react-router-dom";
 import CourseManager from "./containers/CourseManagerContainer/CourseMangerContainer";
 import CourseEditorComponent from "./components/CourseEditor/CourseEditorComponent";
 

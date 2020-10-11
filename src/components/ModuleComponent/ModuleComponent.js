@@ -7,7 +7,7 @@ const Module = ({module, updateModule, deleteModule}) => {
     return <li className={`list-group-item d-flex ${edit ? `active` : ``}`} key={module._id}>
           {edit ?
             <>
-                <input className="input-group mr-auto w-75"
+                <input className="input-group form-control mr-auto w-75"
                        value={module.title}
                        onChange={(event) => updateModule({...module, title: event.target.value})}/>
                 <FontAwesomeIcon icon={faCheck} className="module-update-btn"

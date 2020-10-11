@@ -3,14 +3,14 @@ import {connect} from "react-redux";
 import {createTopic, deleteTopic, updateTopic} from "../actions/topicsActions";
 
 
-const matchStateToProps = (state) => ({
+const stateToPropertyMapper = (state) => ({
    topics: state.topicReducer.topics
 })
 
 const propertyToDispatchMapper = (dispatch) => ({
-    deleteTopicPills: (topics) => deleteTopic(dispatch, topics),
-    createTopicPills: () => createTopic(dispatch),
-    updateTopicPills: (topics) => updateTopic(dispatch, topics)
+    deleteTopic: (id) => deleteTopic(dispatch, id),
+    createTopic: () => createTopic(dispatch),
+    updateTopic: (topic) => updateTopic(dispatch, topic)
 })
 
-export default connect(matchStateToProps, propertyToDispatchMapper)(TopicPills)
+export default connect(stateToPropertyMapper, propertyToDispatchMapper)(TopicPills)
