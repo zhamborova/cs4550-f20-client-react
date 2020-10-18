@@ -2,28 +2,35 @@ import React from "react";
 import "./TopicPills.style.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
-import Topic from "../TopicComponent/TopicComponent";
-import {createTopic, deleteTopic, updateTopic} from "../../actions/topicsActions";
-import {connect} from "react-redux";
+import Topic from "../TopicComponent/Topic";
 
-const TopicPills = ({topics, updateTopic, createTopic, deleteTopic}) => {
+const newTopic = {
+    title: "New Topic",
+}
 
-    return (
-        <ul className="nav nav-pills wbdv-pills">
+const TopicPills = ({topics, updateTopic, createTopic, deleteTopic,
+                    lessonId, module, course, topicCurrent}) => {
+
+
+   return lessonId ? (<ul className="nav nav-pills wbdv-pills">
             {topics.map((topic) => {
                 return <Topic topic={topic} key={topic._id}
                               updateTopic={updateTopic}
                               deleteTopic={deleteTopic}
+                              module={module}
+                              course={course}
+                              lessonId = {lessonId}
+                              topicCurrent={topicCurrent}
                          />
             })}
 
             <li className="nav-item">
                 <FontAwesomeIcon icon={faPlus} className="wbdv-add-topic ml-auto "
-                                 onClick={()=> {createTopic()}}/>
+                                 onClick={()=> {createTopic(lessonId, newTopic)}}/>
 
             </li>
 
         </ul>
-    )
+    ) : null
 }
 export default TopicPills;

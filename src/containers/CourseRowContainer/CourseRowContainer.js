@@ -13,9 +13,7 @@ class CourseRowContainer extends React.Component {
     course: this.props.course
   }
 
-  constructor(props) {
-    super(props)
-  }
+
 
   updateTitle = (event) => {
     const newTitle = event.target.value
@@ -51,7 +49,7 @@ class CourseRowContainer extends React.Component {
           {
             this.state.editing === false &&
 
-            <Link to={`editor/${this.state.course._id}`} className="wbdv-row wbdv-title">
+            <Link to={`/editor/courses/${this.state.course._id}`} className="wbdv-row wbdv-title">
             {this.state.course.title}</Link>
 
           }

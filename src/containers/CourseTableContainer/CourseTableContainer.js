@@ -1,9 +1,10 @@
 import React from "react";
 import CourseRowContainer from "../CourseRowContainer/CourseRowContainer";
 import courseService from "../../services/CourseService";
-import { faList, faTh} from "@fortawesome/free-solid-svg-icons";
+import { faTh} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./CourseTableContainer.style.css"
+import {Link} from "react-router-dom";
 
 class CourseTableContainer extends React.Component {
   state = {
@@ -43,9 +44,9 @@ class CourseTableContainer extends React.Component {
                   <p className="col-6 pl-0 wbdv-header wbdv-title">Title</p>
                   <p className="col-sm-3 col-md-2 wbdv-header wbdv-owner">Owned by</p>
                   <p className="col-4 wbdv-header wbdv-last-modified">Last modified by me</p>
-                  <p className="col-1 wbdv-button wbdv-grid-layout " onClick={()=>this.props.changeView()}>
+                  <Link to='/grid' className="col-1 wbdv-button wbdv-grid-layout " >
                     <FontAwesomeIcon icon={faTh} />
-                  </p>
+                  </Link>
                   <p className="col-1 wbdv-header wbdv-sort">
                       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="28" height="28" x="0" y="0"
                            viewBox="0 0 432 432" style={{"enableBackground":"new 0 0 512 512"}} ><g>

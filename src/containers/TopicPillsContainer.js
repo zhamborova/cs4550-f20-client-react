@@ -4,12 +4,15 @@ import {createTopic, deleteTopic, updateTopic} from "../actions/topicsActions";
 
 
 const stateToPropertyMapper = (state) => ({
-   topics: state.topicReducer.topics
+   topics: state.topicReducer.topics,
+   module: state.moduleReducer.module,
+   course: state.courseReducer.course,
+   lessonId: state.topicReducer.lessonId
 })
 
 const propertyToDispatchMapper = (dispatch) => ({
     deleteTopic: (id) => deleteTopic(dispatch, id),
-    createTopic: () => createTopic(dispatch),
+    createTopic: (lessonId, topic) => createTopic(dispatch,lessonId, topic),
     updateTopic: (topic) => updateTopic(dispatch, topic)
 })
 

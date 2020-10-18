@@ -12,9 +12,6 @@ class CourseCardComponent extends React.Component {
         course: this.props.course
     }
 
-    constructor(props) {
-        super(props)
-    }
 
     updateTitle = (event) => {
         const newTitle = event.target.value
@@ -35,7 +32,8 @@ class CourseCardComponent extends React.Component {
 
         let columns = "col-xs-12 col-sm-5 col-md-3 col-lg-c col-xl-2"
         return (<div className={"card m-1 wbdv-card "+ columns} >
-                <img className="card-img-top" src="https://lh3.google.com/u/0/d/1BWKOyq9agNMsd2n_c3XShuR5T5yVXKSpsFQk9uS1M_Y=w416-iv134" alt="Card image cap"/>
+                <img className="card-img-top" alt={""}
+                     src="https://lh3.google.com/u/0/d/1BWKOyq9agNMsd2n_c3XShuR5T5yVXKSpsFQk9uS1M_Y=w416-iv134" />
                     <div className="card-body">
 
                             {this.state.editing ?
@@ -43,7 +41,7 @@ class CourseCardComponent extends React.Component {
                                     className="form-group ml-1 mb-0"
                                     onChange={this.updateTitle}
                                     value={this.state.course.title}/> :
-                                <Link to={`editor/${this.state.course._id}`}
+                                <Link to={`/editor/courses/${this.state.course._id}`}
                                       className="wbdv-card wbdv-title card-title">
                                     {this.state.course.title}</Link>
                             }

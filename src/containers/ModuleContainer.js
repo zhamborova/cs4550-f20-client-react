@@ -1,16 +1,17 @@
-import React from "react";
 import {connect} from "react-redux";
-import ModuleList from "../components/ModuleListComponent/ModuleListComponent";
+import ModuleList from "../components/ModuleListComponent/ModuleList";
 import {createModule, deleteModule, updateModule} from "../actions/moduleActions";
 
 const stateToPropertyMapper = (state) => ({
-    modules: state.moduleReducer.modules
+    modules: state.moduleReducer.modules,
+    course: state.courseReducer.course,
+    moduleCurrent:state.lessonReducer.moduleId
 })
 
 const propertyToDispatchMapper = (dispatch) => ({
     deleteModule: (id) => deleteModule(dispatch, id),
-    createModule: () => createModule(dispatch),
     updateModule: (module) => updateModule(dispatch, module),
+    createModule: (id, module) => createModule(dispatch, id, module)
 
 })
 

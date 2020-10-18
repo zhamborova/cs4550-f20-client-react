@@ -1,50 +1,44 @@
 import {
     DELETE_MODULE,
     UPDATE_MODULE,
-    CREATE_MODULE, EDIT_MODULE
+    CREATE_MODULE, FIND_MODULES_FOR_COURSE, FIND_MODULE_BY_ID,
 } from "../actions/moduleActions";
 
 const initialState = {
-    modules: [
-        {
-            _id: "123",
-            title: "React.js",
-            editing: false
-        },
-        {
-            _id: "234",
-            title: "Redux.js",
-            editing: true
-        },
-        {
-            _id: "345",
-            title: "jQuery",
-            editing: false
-        },
-    ]
+    modules: [],
+
 }
 
 const moduleReducer = (state=initialState, action) => {
     switch (action.type) {
-        case "SET_MODULES":
+        case FIND_MODULES_FOR_COURSE:
             return {
-                modules: action.modules
+                ...state,
+                modules: action.modules,
+                courseId: action.courseId
             }
+
+        case FIND_MODULE_BY_ID:
+           return{
+               ...state,
+               module: action.module
+           }
         case CREATE_MODULE:
+
             return {
+                ...state,
                 modules: [
                     ...state.modules,
-                    {
-                        _id: (Date.now()) + "",
-                        title: "New Module"
-                    }]
+                      action.module]
             }
         case DELETE_MODULE:
             return {
+                ...state,
                 modules: state.modules.filter(module => action.id !== module._id)
             }
         case UPDATE_MODULE:
             return {
+                ...state,
                 modules: state.modules.map(module => module._id === action.module._id ? action.module : module)
             }
 

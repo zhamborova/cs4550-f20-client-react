@@ -5,9 +5,10 @@ import {faPlusCircle, faPlusSquare} from '@fortawesome/free-solid-svg-icons'
 import CourseTableContainer from "../../containers/CourseTableContainer/CourseTableContainer";
 import courseService from "../../services/CourseService";
 import CourseGridContainer from "../../containers/CourseGridContainer/CourseGridContainer";
+import {Link} from "react-router-dom";
 class CourseManager extends  React.Component{
     state = {
-        isListView: true,
+        isListView: this.props.match.params.view === "table",
         newCourseTitle: "New Course",
         courses:[],
     }
@@ -17,6 +18,13 @@ class CourseManager extends  React.Component{
             .then(courses => this.setState({
                 courses: courses
             }))
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        let {view} = this.props.match.params
+        if(prevProps.match.params.view !== this.props.match.params.view){
+            this.setState({isListView: view})
+        }
     }
 
     createCourse = (name="New Course") => {
@@ -52,7 +60,7 @@ class CourseManager extends  React.Component{
               <span className="navbar-toggler-icon">
               </span>
           </button>
-          <a className="navbar-brand wbdv-label wbdv-course-manager">Course Manager</a>
+          <Link to={"/list"} className="navbar-brand wbdv-label wbdv-course-manager">Course Manager</Link>
 
           <input className="form-control mr-sm-2 wbdv-field wbdv-new-course"
                  type="text"
@@ -73,7 +81,7 @@ class CourseManager extends  React.Component{
 
           </nav>
 
-          {this.state.isListView ?
+          {this.state.isListView === "table" ?
           <CourseTableContainer courses={this.state.courses} changeView={this.changeView}/> :
           <CourseGridContainer courses={this.state.courses} changeView={this.changeView} />
           }

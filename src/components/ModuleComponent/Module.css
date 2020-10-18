@@ -1,0 +1,16 @@
+.active > a{
+    color: white;
+}
+
+.module-edit-btn{
+    width: 12px!important;
+    height: 12px;
+    margin: auto 0;
+}
+
+
+.module-delete-btn, .module-update-btn{
+    width: 15px!important;
+    height: 23px;
+    margin: auto 0;
+}

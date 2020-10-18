@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList} from "@fortawesome/free-solid-svg-icons";
 import CourseCardComponent from "../CourseCardContainer/CourseCardContainer";
 import "./CourseGridContainer.style.css"
+import {Link} from "react-router-dom";
 class CourseGridContainer extends React.Component{
     state = {
        courses:[]
@@ -41,9 +42,9 @@ class CourseGridContainer extends React.Component{
                     <div className="wbdv-grid wbdv-headers row">
                         <p className="col-6 mr-auto pl-0 wbdv-header wbdv-title">Recent Documents</p>
                         <p className="col-2 wbdv-header wbdv-owner">Owned by </p>
-                        <p className="col-1 wbdv-button wbdv-list-layout" onClick={()=>this.props.changeView()}>
+                        <Link to="/table" className="col-1 wbdv-button wbdv-list-layout" >
                             <FontAwesomeIcon icon={faList} />
-                        </p>
+                        </Link>
                         <p className="col-1 wbdv-header wbdv-sort">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="28" height="28" x="0" y="0"
                                  viewBox="0 0 432 432" style={{"enableBackground":"new 0 0 512 512"}} ><g>
