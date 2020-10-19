@@ -12,9 +12,9 @@ class Module extends React.Component{
     }
 
     render() {
-    let {module, updateModule, deleteModule, course, moduleCurrent} = this.props;
+    let {module, updateModule, deleteModule, url,} = this.props;
     let edit = this.state.editing
-    let active = moduleCurrent === module._id || edit ? `active` : ``
+    let active = url.moduleId === module._id || edit ? `active` : ``
 
 
     return<li className={`list-group-item d-flex ${active}`}
@@ -28,16 +28,14 @@ class Module extends React.Component{
                                  onClick={()=>{updateModule({...module,
                                      title: this.state.input});
                                      this.setState({editing:false})}}/>
-                <Link to={`/editor/${course._id}`}
+                <Link to={`/editor/courses/${url.courseId}`}
                       className="module-delete-btn">
                     <FontAwesomeIcon onClick={()=> deleteModule(module._id)} icon={faTimes}
                                      />
                 </Link> </> :
            <>
-                <Link to={`/editor/${course._id}/modules/${module._id}`}
-                      className="mr-auto"
-                      onClick={() => {this.setState({active:true})}}>
-                    {module.title + " "} </Link>
+                <Link to={`/editor/courses/${url.courseId}/modules/${module._id}`}
+                      className="mr-auto">{module.title + " "} </Link>
                 <FontAwesomeIcon onClick={()=> this.setState({editing:true})}
                                  icon={faPenAlt} className="module-edit-btn"/>
             </>

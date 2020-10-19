@@ -8,7 +8,7 @@ import CourseGridContainer from "../../containers/CourseGridContainer/CourseGrid
 import {Link} from "react-router-dom";
 class CourseManager extends  React.Component{
     state = {
-        isListView: this.props.match.params.view === "table",
+        view: this.props.match.params.view,
         newCourseTitle: "New Course",
         courses:[],
     }
@@ -23,7 +23,7 @@ class CourseManager extends  React.Component{
     componentDidUpdate(prevProps, prevState, snapshot) {
         let {view} = this.props.match.params
         if(prevProps.match.params.view !== this.props.match.params.view){
-            this.setState({isListView: view})
+            this.setState({view: view})
         }
     }
 
@@ -48,7 +48,7 @@ class CourseManager extends  React.Component{
     }
 
     changeView = () =>{
-        this.setState({isListView: !this.state.isListView})
+        this.setState({isListView: !this.state.view})
     }
 
     render() {
@@ -81,9 +81,9 @@ class CourseManager extends  React.Component{
 
           </nav>
 
-          {this.state.isListView === "table" ?
-          <CourseTableContainer courses={this.state.courses} changeView={this.changeView}/> :
-          <CourseGridContainer courses={this.state.courses} changeView={this.changeView} />
+          {this.state.view === "table" ?
+          <CourseTableContainer courses={this.state.courses} /> :
+          <CourseGridContainer courses={this.state.courses}  />
           }
           <span className="add-btn wbdv-button"
                 onClick={()=>this.createCourse()}>

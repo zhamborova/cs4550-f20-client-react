@@ -1,4 +1,5 @@
 import moduleService from "../services/ModuleServices"
+import {FIND_LESSONS_FOR_MODULE} from "./lessonActions";
 
 export const DELETE_MODULE = "DELETE_MODULE"
 export const UPDATE_MODULE = "UPDATE_MODULE"
@@ -7,6 +8,11 @@ export const FIND_MODULE_BY_ID = "FIND_MODULE_BY_ID"
 export const FIND_MODULES_FOR_COURSE = "FIND_MODULES_FOR_COURSE"
 
 export const deleteModule = (dispatch, id) => {
+
+    dispatch({
+        type: FIND_LESSONS_FOR_MODULE,
+        moduleId:null
+    })
     moduleService.deleteModuleService(id)
         .then(status => dispatch({
                 type: DELETE_MODULE,

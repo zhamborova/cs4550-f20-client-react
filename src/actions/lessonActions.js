@@ -1,4 +1,5 @@
 import lessonServices from '../services/LessonServices'
+import { FIND_TOPICS_FOR_LESSON} from "./topicsActions";
 export const DELETE_LESSON = "DELETE_LESSON"
 export const UPDATE_LESSON = "UPDATE_LESSON"
 export const CREATE_LESSON = "CREATE_LESSON"
@@ -6,13 +7,19 @@ export const FIND_LESSON_BY_ID = "FIND_LESSON_BY_ID"
 export const FIND_LESSONS_FOR_MODULE = "FIND_LESSONS_FOR_MODULE"
 export const RESET_LESSON = "RESET_LESSON"
 
-export const deleteLesson = (dispatch, id) =>
+export const deleteLesson = (dispatch, id) => {
+    dispatch({
+        type: FIND_TOPICS_FOR_LESSON,
+        lessonId:null
+    })
     lessonServices.deleteLessonService(id)
         .then(status => dispatch({
-        type: DELETE_LESSON,
-        id
-    }))
+            type: DELETE_LESSON,
+            id
+        }))
 
+
+}
 export const updateLesson = (dispatch, lesson) =>
     lessonServices.updateLessonService(lesson._id, lesson)
         .then(status => dispatch({
@@ -50,13 +57,6 @@ export const findLessonById = (dispatch, id) =>{
         })
 
         )
-}
-
-export const resetLesson = (dispatch) => {
-
-    dispatch({
-        type: RESET_LESSON
-    })
 }
 
 

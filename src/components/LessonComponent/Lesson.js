@@ -14,9 +14,8 @@ class Lesson extends React.Component{
 
 
    render(){
-       let {lesson,updateLesson, deleteLesson,course, moduleId,lessonCurrent,
-        resetLesson} = this.props;
-       let active = lessonCurrent === lesson._id || lesson.editing ? `active`: ``
+       let {lesson,updateLesson, deleteLesson,url} = this.props;
+       let active = url.lessonId === lesson._id || lesson.editing ? `active`: ``
 
        return  <li className={`nav-item wbdv-lesson-tab ${active}`} >
         {this.state.editing ?
@@ -28,13 +27,12 @@ class Lesson extends React.Component{
                                  onClick={()=>{updateLesson({...lesson,
                                                             title: this.state.input});
                                       this.setState({editing:false})}}/>
-                <FontAwesomeIcon onClick={()=> {deleteLesson(lesson._id);
-                                                resetLesson()}} icon={faTimes}
-                                 className="lesson-delete-btn"/>
-
+              <Link to={`/editor/courses/${url.courseId}/modules/${url.moduleId}/`} >
+                  <FontAwesomeIcon onClick={()=> {deleteLesson(lesson._id)}}
+                                   icon={faTimes}
+                                   className="lesson-delete-btn"/></Link>
             </> :
-
-                <Link to={`/editor/${course._id}/modules/${moduleId}/lessons/${lesson._id}`}
+                <Link to={`/editor/courses/${url.courseId}/modules/${url.moduleId}/lessons/${lesson._id}`}
                       className="mr-1 nav-link">
                     {lesson.title}
                     <FontAwesomeIcon onClick={()=> this.setState({editing:true})}

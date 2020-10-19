@@ -12,7 +12,7 @@ function App() {
         <Route exact path={
             [ "/editor/courses/:courseId",
               "/editor/courses/:courseId/modules/:moduleId",
-             "/editor/courses/:courseId/modules/:moduleId/lessons/:lessonId",
+              "/editor/courses/:courseId/modules/:moduleId/lessons/:lessonId",
             ]} component={CourseEditor}/>
       </BrowserRouter>
   );

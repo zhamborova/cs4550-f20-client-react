@@ -8,60 +8,44 @@ import {connect} from "react-redux";
 import {findCourseById} from "../../actions/courseActions"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
-import {findLessonsForModule, resetLesson} from "../../actions/lessonActions";
+import {findLessonsForModule} from "../../actions/lessonActions";
 import {Link} from "react-router-dom";
 import {findTopicsForLesson} from "../../actions/topicsActions";
 
 class CourseEditor extends React.Component{
 
     state={
-     course: this.props.match.params.courseId
+     course: this.props.course
     }
     componentDidMount() {
-        const courseId = this.props.match.params.courseId
-        const moduleId = this.props.match.params.moduleId
+        const {courseId,moduleId,lessonId } = this.props.match.params
         this.props.findCourseById(courseId)
         this.props.findModulesForCourse(courseId)
-        if(moduleId) {
-            this.props.findLessonsForModule(this.props.match.params.moduleId)
-        }
+        if(moduleId) {this.props.findLessonsForModule(moduleId) }
+        if(lessonId) {this.props.findTopicsForLesson(lessonId) }
+
 
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-       const {moduleId, lessonId, courseId} = this.props.match.params
+       const {moduleId, lessonId} = this.props.match.params
         const previousModuleId = prevProps.match.params.moduleId
         const prevLessonId = prevProps.match.params.lessonId
-        const prevCourseId = prevProps.match.params.courseId
-
-        console.log(prevCourseId, courseId)
-        if(courseId !== prevCourseId) {
-            console.log("update hd")
-            this.props.findModulesForCourse(courseId)
-
-        }
         if(moduleId !== previousModuleId) {
-            //console.log("moduleUpdated")
             this.props.findLessonsForModule(this.props.match.params.moduleId)
-
         }
         if(lessonId !== prevLessonId) {
-            //console.log("lessonUdpated")
             this.props.findTopicsForLesson(this.props.match.params.lessonId)
         }
     }
 
- reset = () => {
-     this.props.findTopicsForLesson(null)
-     this.props.findLessonsForModule(null)
 
- }
     render() {
       return (<div className="container-fluid p-0">
                 <nav className="wbdv-nav navbar navbar-expand-md  navbar-dark">
 
                     <div className=" wbdv-course-title">
-                        <Link to="/" onClick={()=>{this.reset()}}><FontAwesomeIcon icon={faTimes}
+                        <Link to="/table" ><FontAwesomeIcon icon={faTimes}
                                                       className="module-delete-btn exit"/></Link>
                         <span className="mr-auto "> {this.props.course.title}</span></div>
                     <button className="navbar-toggler ml-auto" type="button" data-toggle="collapse"
@@ -69,7 +53,7 @@ class CourseEditor extends React.Component{
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"/>
                     </button>
-                    <LessonContainer className="mr-auto"/>
+                    <LessonContainer url={this.props.match.params} className="mr-auto"/>
 
                 </nav>
 
@@ -81,10 +65,13 @@ class CourseEditor extends React.Component{
                                 aria-expanded="false" aria-label="Toggle navigation">
                             <span >Modules</span>
                         </button>
-                        <ModuleContainer  />
+                        <ModuleContainer url={this.props.match.params} />
                     </nav>
-                    <TopicPillsContainer className="col-8"/>
+                    <TopicPillsContainer url={this.props.match.params} className="col-8"/>
                 </div>
+
+
+
             </div>
 
 
@@ -95,14 +82,12 @@ class CourseEditor extends React.Component{
 
 const stateToProperty = (state) => ({
     course: state.courseReducer.course,
-
 })
 const propertyToDispatchMapper = (dispatch) => ({
     findModulesForCourse: (id) => findModulesForCourse(dispatch, id),
     findCourseById: (courseId) => findCourseById(dispatch,courseId),
     findLessonsForModule: (moduleId) => findLessonsForModule(dispatch,moduleId),
     findTopicsForLesson: (lessonId) => findTopicsForLesson(dispatch, lessonId),
-    resetLesson: () => resetLesson(dispatch)
 })
 
 export default connect(stateToProperty, propertyToDispatchMapper)(CourseEditor)

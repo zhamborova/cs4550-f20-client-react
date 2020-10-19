@@ -6,12 +6,11 @@ import ModuleComponent from "../ModuleComponent/Module";
 
 const newModule = {
     title: "New Module",
-    editing: false
 }
 
 
 
-const ModuleList = ({modules,deleteModule, updateModule, createModule, course, moduleCurrent}) =>{
+const ModuleList = ({modules,deleteModule, updateModule, createModule, url}) =>{
 
     return (<ul className="list-group wbdv-module-list" id="modules">
             {modules.map((module) => {
@@ -19,14 +18,13 @@ const ModuleList = ({modules,deleteModule, updateModule, createModule, course, m
                                          deleteModule={deleteModule}
                                          updateModule={updateModule}
                                          module={module}
-                                         course={course}
-                                         moduleCurrent={moduleCurrent}/>
+                                         url={url}/>
                })
             }
             <li className="list-group-item d-flex">
             <FontAwesomeIcon icon={faPlus}
                              className="ml-auto wbdv-add-module"
-                             onClick={() => createModule(course._id, newModule)}/>
+                             onClick={() => createModule(url.courseId, newModule)}/>
             </li>
             </ul>
     )
