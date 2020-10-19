@@ -60,7 +60,7 @@ class CourseManager extends  React.Component{
               <span className="navbar-toggler-icon">
               </span>
           </button>
-          <Link to={"/list"} className="navbar-brand wbdv-label wbdv-course-manager">Course Manager</Link>
+          <Link to={"/table"} className="navbar-brand wbdv-label wbdv-course-manager">Course Manager</Link>
 
           <input className="form-control mr-sm-2 wbdv-field wbdv-new-course"
                  type="text"

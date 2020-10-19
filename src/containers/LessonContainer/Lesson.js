@@ -27,10 +27,11 @@ class Lesson extends React.Component{
                                  onClick={()=>{updateLesson({...lesson,
                                                             title: this.state.input});
                                       this.setState({editing:false})}}/>
-              <Link to={`/editor/courses/${url.courseId}/modules/${url.moduleId}/`} >
+              <Link to={`/editor/courses/${url.courseId}/modules/${url.moduleId}/`}
+                    className="lesson-delete-btn">
                   <FontAwesomeIcon onClick={()=> {deleteLesson(lesson._id)}}
                                    icon={faTimes}
-                                   className="lesson-delete-btn"/></Link>
+                                   /></Link>
             </> :
                 <Link to={`/editor/courses/${url.courseId}/modules/${url.moduleId}/lessons/${lesson._id}`}
                       className="mr-1 nav-link">
