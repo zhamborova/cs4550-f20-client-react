@@ -2,7 +2,7 @@ import React from "react";
 import './LessonTabs.style.css'
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import LessonComponent from "../LessonComponent/Lesson";
+import LessonComponent from "../../containers/LessonContainer/Lesson";
 
 const newLesson = {
     title: "New Lesson",

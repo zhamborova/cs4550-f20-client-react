@@ -2,7 +2,7 @@ import React from "react";
 import "./TopicPills.style.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
-import Topic from "../TopicComponent/Topic";
+import Topic from "../../containers/TopicContainer/Topic";
 
 const newTopic = {
     title: "New Topic",

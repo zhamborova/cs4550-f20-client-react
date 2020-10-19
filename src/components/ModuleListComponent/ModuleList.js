@@ -2,7 +2,7 @@ import React from "react";
 import "./ModuleList.style.css"
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import ModuleComponent from "../ModuleComponent/Module";
+import ModuleComponent from "../../containers/ModuleContainer/Module";
 
 const newModule = {
     title: "New Module",

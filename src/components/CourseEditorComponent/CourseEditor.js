@@ -1,8 +1,8 @@
 import React from 'react';
 import "./CourseEditor.style.css"
-import ModuleContainer from "../../containers/ModuleContainer";
-import LessonContainer from "../../containers/LessonContainer";
-import TopicPillsContainer from "../../containers/TopicPillsContainer";
+import ModuleContainer from "../ModuleListComponent/ModuleReduxContainer";
+import LessonContainer from "../LessonTabsComponent/LessonReduxContainer";
+import TopicPillsContainer from "../TopicPillsComponent/TopicPillsReduxContainer";
 import  {findModulesForCourse} from "../../actions/moduleActions"
 import {connect} from "react-redux";
 import {findCourseById} from "../../actions/courseActions"
@@ -14,9 +14,6 @@ import {findTopicsForLesson} from "../../actions/topicsActions";
 
 class CourseEditor extends React.Component{
 
-    state={
-     course: this.props.course
-    }
     componentDidMount() {
         const {courseId,moduleId,lessonId } = this.props.match.params
         this.props.findCourseById(courseId)

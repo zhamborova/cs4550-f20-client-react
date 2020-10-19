@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import LessonTabs from "../components/LessonTabsComponent/LessonTabs";
-import {createLesson, deleteLesson, updateLesson} from "../actions/lessonActions";
+import LessonTabs from "./LessonTabs";
+import {createLesson, deleteLesson, updateLesson} from "../../actions/lessonActions";
 
 const stateToPropertyMapper = (state) => ({
    lessons: state.lessonReducer.lessons,

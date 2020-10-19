@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import ModuleList from "../components/ModuleListComponent/ModuleList";
-import {createModule, deleteModule, updateModule} from "../actions/moduleActions";
+import ModuleList from "./ModuleList";
+import {createModule, deleteModule, updateModule} from "../../actions/moduleActions";
 
 const stateToPropertyMapper = (state) => ({
     modules: state.moduleReducer.modules,

@@ -1,6 +1,6 @@
-import TopicPills from "../components/TopicPillsComponent/TopicPills";
+import TopicPills from "./TopicPills";
 import {connect} from "react-redux";
-import {createTopic, deleteTopic, updateTopic} from "../actions/topicsActions";
+import {createTopic, deleteTopic, updateTopic} from "../../actions/topicsActions";
 
 
 const stateToPropertyMapper = (state) => ({

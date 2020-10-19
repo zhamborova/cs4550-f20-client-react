@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter} from "react-router-dom";
 import {Route} from "react-router-dom";
 import CourseManager from "./containers/CourseManagerContainer/CourseMangerContainer";
-import CourseEditor from "./containers/CourseEditorContainer/CourseEditor";
+import CourseEditor from "./components/CourseEditorComponent/CourseEditor";
 
 function App() {
   return (
