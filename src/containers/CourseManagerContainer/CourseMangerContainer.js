@@ -8,7 +8,7 @@ import CourseGridContainer from "../../containers/CourseGridContainer/CourseGrid
 import {Link} from "react-router-dom";
 class CourseManager extends  React.Component{
     state = {
-        view: this.props.match.params.view,
+        view: "table",
         newCourseTitle: "New Course",
         courses:[],
     }
@@ -18,6 +18,9 @@ class CourseManager extends  React.Component{
             .then(courses => this.setState({
                 courses: courses
             }))
+
+
+
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {

@@ -1,5 +1,4 @@
 import {CREATE_TOPIC, DELETE_TOPIC, FIND_TOPICS_FOR_LESSON, UPDATE_TOPIC} from "../actions/topicsActions";
-import {RESET_LESSON} from "../actions/lessonActions";
 
 const initialState = {
     topics:  [],
@@ -35,11 +34,7 @@ const initialState = {
                  topics: state.topics.map(topic => topic._id === action.topic._id ? action.topic : topic)
              }
 
-         case RESET_LESSON:
-             return {
-                 ...state,
-                 lessonId: null
-             }
+
 
          default: return state;
      }
