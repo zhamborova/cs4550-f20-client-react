@@ -9,10 +9,6 @@ export const FIND_MODULES_FOR_COURSE = "FIND_MODULES_FOR_COURSE"
 
 export const deleteModule = (dispatch, id) => {
 
-    dispatch({
-        type: FIND_LESSONS_FOR_MODULE,
-        moduleId:null
-    })
     moduleService.deleteModuleService(id)
         .then(status => dispatch({
                 type: DELETE_MODULE,

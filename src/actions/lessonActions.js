@@ -5,7 +5,7 @@ export const UPDATE_LESSON = "UPDATE_LESSON"
 export const CREATE_LESSON = "CREATE_LESSON"
 export const FIND_LESSON_BY_ID = "FIND_LESSON_BY_ID"
 export const FIND_LESSONS_FOR_MODULE = "FIND_LESSONS_FOR_MODULE"
-export const RESET_LESSON = "RESET_LESSON"
+
 
 export const deleteLesson = (dispatch, id) => {
     dispatch({
@@ -40,8 +40,7 @@ export const findLessonsForModule = (dispatch, moduleId) => {
     lessonServices.findLessonsForModule(moduleId).then(lessons =>
         dispatch({
           type: FIND_LESSONS_FOR_MODULE,
-            lessons,
-            moduleId
+            lessons
         })
     )
 

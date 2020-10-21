@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   lessons: [],
-  moduleId: null
+
 }
 
 
@@ -18,7 +18,6 @@ const lessonReducer = (state=initialState, action) => {
         case FIND_LESSONS_FOR_MODULE : return {
             ...state,
             lessons: action.lessons,
-            moduleId: action.moduleId
         }
         case FIND_LESSON_BY_ID:
             return{
