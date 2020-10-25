@@ -87,6 +87,7 @@
 }
 .wbdv-nav-module{
     padding: 0!important;
+    height: min-content;
 }
 
 @media (max-width: 730px) {

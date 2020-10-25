@@ -16,6 +16,7 @@ const TopicPills = ({topics, updateTopic, createTopic, deleteTopic, url}) => {
                 return <Topic topic={topic} key={topic._id}
                               updateTopic={updateTopic}
                               deleteTopic={deleteTopic}
+                              url={url}
                          />
             })}
 

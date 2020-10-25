@@ -1,0 +1,20 @@
+.widget-delete-btn{
+    margin: auto 4px;
+}
+.widget-edit-btn{
+    margin: auto 4px auto auto;
+}
+.paragraph-container{
+    margin: 10px;
+    border: 1px solid lightgrey;
+    padding:20px;
+    border-radius: 6px;
+}
+
+.widget-type{
+   margin: auto 4px auto auto;
+}
+
+.paragraph-text{
+    min-height: 100px;
+}

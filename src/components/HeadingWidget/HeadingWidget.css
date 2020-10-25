@@ -1,0 +1,20 @@
+.widget-delete-btn,.widget-update-btn{
+    margin: auto 4px;
+}
+.widget-edit-btn{
+    margin: auto 4px auto auto;
+}
+
+
+.heading-container{
+
+    border: 1px solid lightgrey;
+    padding:20px;
+    border-radius: 6px;
+    margin: 10px;
+}
+
+.widget-type{
+    margin: auto 4px auto auto;
+}
+

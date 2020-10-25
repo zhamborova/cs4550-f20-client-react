@@ -11,28 +11,35 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {findLessonsForModule} from "../../actions/lessonActions";
 import {Link} from "react-router-dom";
 import {findTopicsForLesson} from "../../actions/topicsActions";
+import WidgetList from "../WidgetListComponent/WidgetList";
+import {findWidgetsForTopic} from "../../actions/widgetActions";
 
 class CourseEditor extends React.Component{
 
     componentDidMount() {
-        const {courseId,moduleId,lessonId } = this.props.match.params
+        const {courseId,moduleId,lessonId, topicId } = this.props.match.params
         this.props.findCourseById(courseId)
         this.props.findModulesForCourse(courseId)
         if(moduleId) {this.props.findLessonsForModule(moduleId) }
         if(lessonId) {this.props.findTopicsForLesson(lessonId) }
-
+        if(topicId) {this.props.findWidgetsForTopic(topicId) }
 
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-       const {moduleId, lessonId} = this.props.match.params
+       const {moduleId, lessonId, topicId} = this.props.match.params
         const previousModuleId = prevProps.match.params.moduleId
         const prevLessonId = prevProps.match.params.lessonId
+        const prevTopicId = prevProps.match.params.topicId
+
         if(moduleId !== previousModuleId) {
             this.props.findLessonsForModule(this.props.match.params.moduleId)
         }
         if(lessonId !== prevLessonId) {
             this.props.findTopicsForLesson(this.props.match.params.lessonId)
+        }
+        if(topicId !== prevTopicId) {
+            this.props.findWidgetsForTopic(topicId)
         }
     }
 
@@ -64,7 +71,10 @@ class CourseEditor extends React.Component{
                         </button>
                         <ModuleContainer url={this.props.match.params} />
                     </nav>
-                    <TopicPillsContainer url={this.props.match.params} className="col-8"/>
+                    <div className="col-8">
+                    <TopicPillsContainer url={this.props.match.params} />
+                    <WidgetList url={this.props.match.params} />
+                    </div>
                 </div>
 
 
@@ -85,6 +95,7 @@ const propertyToDispatchMapper = (dispatch) => ({
     findCourseById: (courseId) => findCourseById(dispatch,courseId),
     findLessonsForModule: (moduleId) => findLessonsForModule(dispatch,moduleId),
     findTopicsForLesson: (lessonId) => findTopicsForLesson(dispatch, lessonId),
+    findWidgetsForTopic: (topicId) => findWidgetsForTopic(dispatch,topicId)
 })
 
 export default connect(stateToProperty, propertyToDispatchMapper)(CourseEditor)
