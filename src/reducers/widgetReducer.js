@@ -18,7 +18,7 @@ const widgetReducer = (state=initialState, action) => {
                     action.widget]
             }
         case FIND_WIDGETS_FOR_TOPIC :
-            console.log(action.widgets)
+
             return {
                 ...state,
                 widgets: action.widgets,
@@ -26,12 +26,12 @@ const widgetReducer = (state=initialState, action) => {
         case DELETE_WIDGET:
             return {
                 ...state,
-                widgets: state.widgets.filter(widget => action.id !== widget._id)
+                widgets: state.widgets.filter(widget => action.id !== widget.id)
             }
         case UPDATE_WIDGET:
             return {
                 ...state,
-                widgets: state.widgets.map(widget => widget._id === action.widget._id ?
+                widgets: state.widgets.map(widget => widget.id === action.widget.id ?
                                                          action.widget : widget)
             }
 

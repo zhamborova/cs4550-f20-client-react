@@ -7,12 +7,12 @@ import  {findModulesForCourse} from "../../actions/moduleActions"
 import {connect} from "react-redux";
 import {findCourseById} from "../../actions/courseActions"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTimes} from "@fortawesome/free-solid-svg-icons";
+import {faPlus, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {findLessonsForModule} from "../../actions/lessonActions";
 import {Link} from "react-router-dom";
 import {findTopicsForLesson} from "../../actions/topicsActions";
 import WidgetList from "../WidgetListComponent/WidgetList";
-import {findWidgetsForTopic} from "../../actions/widgetActions";
+import {createWidgetForTopic, findWidgetsForTopic} from "../../actions/widgetActions";
 
 class CourseEditor extends React.Component{
 
@@ -78,10 +78,7 @@ class CourseEditor extends React.Component{
                 </div>
 
 
-
             </div>
-
-
         )
     }
 
@@ -95,7 +92,8 @@ const propertyToDispatchMapper = (dispatch) => ({
     findCourseById: (courseId) => findCourseById(dispatch,courseId),
     findLessonsForModule: (moduleId) => findLessonsForModule(dispatch,moduleId),
     findTopicsForLesson: (lessonId) => findTopicsForLesson(dispatch, lessonId),
-    findWidgetsForTopic: (topicId) => findWidgetsForTopic(dispatch,topicId)
+    findWidgetsForTopic: (topicId) => findWidgetsForTopic(dispatch,topicId),
+
 })
 
 export default connect(stateToProperty, propertyToDispatchMapper)(CourseEditor)

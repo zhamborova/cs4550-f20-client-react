@@ -114,3 +114,16 @@
     background-color: darkred;
 
 }
+
+.widget-add-button{
+    width: 40px!important;
+    height: 40px;
+    position: sticky;
+    left: 93%;
+    margin-top: auto;
+
+}
+
+.widget-add-button > path {
+    fill: red;
+}

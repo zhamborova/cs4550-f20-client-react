@@ -7,24 +7,52 @@ import "./ParagraphWidget.css"
 class ParagraphWidget extends React.Component {
 
     state={
-        text:"",
-        widgetName:"",
-        editing: false
+        className: null,
+        height: null,
+        html: null,
+        id: "",
+        name: "",
+        order: 0,
+        size: "",
+        src: null,
+        text: "",
+        topicId: "",
+        type: "PARAGRAPH",
+        width: null,
     }
 
+    componentDidMount() {
+        this.setState({
+            id: this.props.widget.id,
+            text:this.props.widget.text,
+            name: this.props.widget.name,
+            size: this.props.widget.size,
+            type: this.props.widget.type,
+            order: this.props.widget.order,
+            topicId: this.props.widget.topicId,
+        })
+
+    }
     render(){
       return(<div className="paragraph-container">
             <div className="paragraph-menu d-flex mb-2">
                 <h3>Paragraph widget</h3>
                 {this.state.editing ?
-                <>
-                <select  className=" widget-type form-control w-25">
-                    <option>Paragraph</option>
-                    <option> Heading </option>
-                </select>
-                <FontAwesomeIcon icon={faCheck} className="module-update-btn"
-                                     onClick={()=> this.setState({editing:false}) }/>
-                <FontAwesomeIcon  icon={faTimes} className="widget-delete-btn"/></>:
+                <><select className=" widget-type form-control w-25 mb-2"
+                            value={this.state.type}
+                            onChange={(e) => this.setState({type: e.target.value})}>
+                        <option value="HEADING"> Heading</option>
+                        <option value="PARAGRAPH">Paragraph</option>
+                    </select>
+                    <FontAwesomeIcon icon={faCheck} className="widget-update-btn "
+                                     onClick={() => {
+                                         this.setState({editing: false});
+                                         this.props.updateWidget(this.state)
+                                     }}/>
+                    <FontAwesomeIcon icon={faTimes}
+                                     className="widget-delete-btn"
+                                     onClick={() =>  this.props.deleteWidget(this.state.id)} />
+                </>:
                  <>
                      <FontAwesomeIcon  onClick={()=> this.setState({editing:true})}
                                       icon={faPenAlt} className="widget-edit-btn"/>
@@ -40,12 +68,14 @@ class ParagraphWidget extends React.Component {
                       onChange={(e)=>{this.setState({text:e.target.value})}}/>
             <input  className="widget-name form-control"
                     placeholder="Widget Name"
-                    value={this.state.widgetName}
-                    onChange={(e)=>{this.setState({widgetName:e.target.value})}}/>
+                    value={this.state.name}
+                    onChange={(e)=>{this.setState({name:e.target.value})}}/>
                     </> : null }
             </div>
             <div className="paragraph-preview">
-                {this.state.editing ? <h4>Preview</h4> : null}
+                {this.state.editing ?
+                    <h4>Preview</h4> :
+                    null}
                 <p>{this.state.text}</p>
 
             </div>

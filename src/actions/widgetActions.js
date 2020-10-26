@@ -4,22 +4,22 @@ export const UPDATE_WIDGET = "UPDATE_WIDGET";
 export const CREATE_WIDGET = "CREATE_WIDGET";
 export const FIND_WIDGETS_FOR_TOPIC= "FIND_WIDGETS_FOR_TOPIC"
 
-export const deleteWidget =(dispatch, id)=>(
+export const deleteWidget =(dispatch, id)=>
+
    widgetServices.deleteWidgetService(id).then(status =>
         dispatch({
             type: DELETE_WIDGET,
             id
         })
-    ))
+    )
 
 
-export const updateWidget =(dispatch, widget)=>(
-    widgetServices.updateWidgetService(widget._id, widget)
+export const updateWidget =(dispatch, widget)=>{
+    widgetServices.updateWidgetService(widget)
         .then(status => dispatch( {
                 type: UPDATE_WIDGET,
-                widget
-            })
-        ))
+                widget}))
+}
 
 export const createWidgetForTopic=(dispatch, topicId)=>{
         widgetServices.createWidgetForTopic(topicId, {
