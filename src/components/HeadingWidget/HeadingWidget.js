@@ -1,6 +1,6 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck, faPenAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {faArrowDown, faArrowUp, faCheck, faPenAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
 import "./HeadingWidget.css"
 
 
@@ -10,13 +10,13 @@ class HeadingWidget extends React.Component {
         className: null,
         height: null,
         html: null,
-        id: "567",
-        name: "Widget A",
+        id: "",
+        name: "",
         order: 0,
         size: "h1",
         src: null,
         text: "Lorem Ipsum",
-        topicId: "5f8d56f05595540017f92454",
+        topicId: "",
         type: "HEADING",
         width: null,
     }
@@ -38,6 +38,8 @@ class HeadingWidget extends React.Component {
     render() {
         return (<div className="heading-container">
                 <div className="heading-menu d-flex mb-2">
+
+
                     <h3>Heading widget</h3>
                     {this.state.editing ?
                         <>
@@ -47,6 +49,16 @@ class HeadingWidget extends React.Component {
                                 <option value="HEADING"> Heading</option>
                                 <option value="PARAGRAPH">Paragraph</option>
                             </select>
+                            {this.props.widget.order !== 0 ?
+                            <FontAwesomeIcon icon={faArrowUp} className="widget-up-btn"
+                                 onClick={()=> this.props.moveWidgetUp(this.props.widget.order)}
+                              />: null}
+
+                            {this.props.lastIndex !== this.props.widget.order ?
+                            <FontAwesomeIcon icon={faArrowDown} className="widget-down-btn"
+                                             onClick={()=> {
+                                                 this.props.moveWidgetDown(this.props.widget.order)}}
+                            /> : null}
                             <FontAwesomeIcon icon={faCheck} className="widget-update-btn "
                                              onClick={() => {
                                                  this.setState({editing: false});
@@ -95,6 +107,7 @@ class HeadingWidget extends React.Component {
                     <p>{this.state.text}</p>
 
                 </div>
+
             </div>
         )
 

@@ -39,8 +39,31 @@ export const  updateWidgetService = (widget) =>{
 
 }
 
+
+export const moveWidgetUp = (index) => {
+    return fetch( `${widgetUrl}/moveUp/${index}`,
+        {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(response => response.json())
+}
+
+
+export const moveWidgetDown = (index) => {
+    return fetch( `${widgetUrl}/moveDown/${index}`,
+        {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(response => response.json())
+}
+
 export default {
-    findWidgetsForTopic, createWidgetForTopic, deleteWidgetService, updateWidgetService
+    findWidgetsForTopic, createWidgetForTopic, deleteWidgetService, updateWidgetService,
+    moveWidgetUp, moveWidgetDown
 
 }
 

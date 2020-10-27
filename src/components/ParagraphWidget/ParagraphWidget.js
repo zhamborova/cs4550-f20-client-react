@@ -1,6 +1,6 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck, faPenAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {faArrowDown, faArrowUp, faCheck, faPenAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
 import "./ParagraphWidget.css"
 
 
@@ -44,6 +44,16 @@ class ParagraphWidget extends React.Component {
                         <option value="HEADING"> Heading</option>
                         <option value="PARAGRAPH">Paragraph</option>
                     </select>
+
+                    {this.props.widget.order !== 0 ?
+                        <FontAwesomeIcon icon={faArrowUp} className="widget-up-btn"
+                                         onClick={()=> this.props.moveWidgetUp(this.props.widget.order)}
+                        />: null}
+                    {this.props.lastIndex !== this.props.widget.order ?
+                        <FontAwesomeIcon icon={faArrowDown} className="widget-down-btn"
+                                         onClick={()=> {
+                                             this.props.moveWidgetDown(this.props.widget.order)}}
+                        /> : null}
                     <FontAwesomeIcon icon={faCheck} className="widget-update-btn "
                                      onClick={() => {
                                          this.setState({editing: false});

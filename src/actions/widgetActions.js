@@ -3,6 +3,29 @@ export const DELETE_WIDGET = "DELETE_WIDGET";
 export const UPDATE_WIDGET = "UPDATE_WIDGET";
 export const CREATE_WIDGET = "CREATE_WIDGET";
 export const FIND_WIDGETS_FOR_TOPIC= "FIND_WIDGETS_FOR_TOPIC"
+export const WIDGET_UP = "WIDGET_UP"
+export const WIDGET_DOWN = "WIDGET_DOWN"
+
+
+export const moveWidgetUp = (dispatch, index) => {
+    widgetServices.moveWidgetUp(index).then(
+        dispatch({
+        type: WIDGET_UP,
+        index
+      })
+    )
+}
+
+export const moveWidgetDown = (dispatch, index) => {
+    widgetServices.moveWidgetDown(index).then(
+    dispatch({
+        type: WIDGET_DOWN,
+        index
+    })
+)
+}
+
+
 
 export const deleteWidget =(dispatch, id)=>
 
