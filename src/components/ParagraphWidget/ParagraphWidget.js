@@ -34,6 +34,7 @@ class ParagraphWidget extends React.Component {
 
     }
     render(){
+        console.log(this.props.widget.name,this.props.widget.order, this.props.lastIndex)
       return(<div className="paragraph-container">
             <div className="paragraph-menu d-flex mb-2">
                 <h3>Paragraph widget</h3>

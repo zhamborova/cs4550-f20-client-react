@@ -10,6 +10,7 @@ const initialState = {
 }
 
 const moduleReducer = (state=initialState, action) => {
+
     switch (action.type) {
         case FIND_MODULES_FOR_COURSE:
             return {
@@ -27,15 +28,15 @@ const moduleReducer = (state=initialState, action) => {
 
             return {
                 ...state,
-                modules: [
-                    ...state.modules,
-                      action.module]
+                modules: [...state.modules,
+                             action.module]
             }
         case DELETE_MODULE:
             return {
                 ...state,
                 modules: state.modules.filter(module => action.id !== module._id)
             }
+
         case UPDATE_MODULE:
             return {
                 ...state,
@@ -47,6 +48,8 @@ const moduleReducer = (state=initialState, action) => {
         default:
             return state
     }
+
+
 }
 
 export default moduleReducer
