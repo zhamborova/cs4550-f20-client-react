@@ -12,9 +12,9 @@ const initialState = {
 const moveUp  = (list, index) => {
 
     let temp = list[index-1];
-    temp.order = index;
+    temp.widgetOrder = index;
     let widget =  list[index]
-    widget.order = index-1;
+    widget.widgetOrder = index-1;
 
     list[index-1] = list[index];
     list[index] = temp;
@@ -28,9 +28,9 @@ const moveDown = (list, index) => {
 
 
     let temp = list[index+1];
-    temp.order = index;
+    temp.widgetOrder = index;
     let widget =  list[index]
-    widget.order = index+1;
+    widget.widgetOrder = index+1;
 
     list[index+1] = list[index];
     list[index] = temp;
@@ -74,7 +74,6 @@ const widgetReducer = (state=initialState, action) => {
                                                          action.widget : widget)
             }
         case WIDGET_UP:
-           console.log('here')
             return {
                 ...state,
                 widgets: moveUp(state.widgets, action.index)

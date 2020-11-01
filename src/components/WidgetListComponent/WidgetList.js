@@ -41,7 +41,7 @@ const WidgetList = ({url, widgets, deleteWidget, updateWidget, createWidget, mov
     return url.topicId ? <ul className="container m-auto">
             {widgets.map(widget =>
                     <li key={widget.id}>
-                        {selectWidget(widget.type, widget, deleteWidget,
+                        {selectWidget(widget.widgetType, widget, deleteWidget,
                             updateWidget, moveWidgetUp, moveWidgetDown, widgets.length -1)}
                     </li>
                 )

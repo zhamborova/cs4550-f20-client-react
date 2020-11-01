@@ -13,7 +13,7 @@ function App() {
             [ "/editor/courses/:courseId",
               "/editor/courses/:courseId/modules/:moduleId",
               "/editor/courses/:courseId/modules/:moduleId/lessons/:lessonId",
-            "/editor/courses/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+              "/editor/courses/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
             ]} component={CourseEditor}/>
       </BrowserRouter>
   );

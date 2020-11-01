@@ -8,7 +8,7 @@ export const WIDGET_DOWN = "WIDGET_DOWN"
 
 
 export const moveWidgetUp = (dispatch, index) => {
-    widgetServices.moveWidgetUp(index).then(
+    widgetServices.moveWidgetUp(index).then(status =>
         dispatch({
         type: WIDGET_UP,
         index
@@ -47,7 +47,7 @@ export const updateWidget =(dispatch, widget)=>{
 export const createWidgetForTopic=(dispatch, topicId)=>{
         widgetServices.createWidgetForTopic(topicId, {
             name: "NEW WIDGET",
-            type: "PARAGRAPH"
+            widgetType: "PARAGRAPH"
         }).then(widget => dispatch({
             type: CREATE_WIDGET,
             widget
@@ -58,11 +58,15 @@ export const createWidgetForTopic=(dispatch, topicId)=>{
 
 export const findWidgetsForTopic = (dispatch,topicId) =>{
     widgetServices.findWidgetsForTopic(topicId)
-        .then(widgets =>
+        .then(widgets => {
+            console.log(widgets, "action")
+
             dispatch({
                 type: FIND_WIDGETS_FOR_TOPIC,
                 widgets
             })
+
+        }
         )
 
 }

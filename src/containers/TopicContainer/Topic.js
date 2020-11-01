@@ -2,7 +2,7 @@ import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck, faPenAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
-
+import './Topic.css'
 class Topic extends React.Component{
   state={
       input: this.props.topic.title,
@@ -13,8 +13,11 @@ class Topic extends React.Component{
     render() {
         let {topic, updateTopic, deleteTopic, url}  = this.props
         let edit = this.state.editing;
+        let active = url.topicId === topic._id || edit ? ` active` : ``
 
-        return <li className={`nav-item d-flex wbdv-pill pr-0 ${edit ? `active` : ``}`} >
+
+
+        return <li className={`nav-item d-flex wbdv-pill pr-0 `} >
         {edit ?
             <>
                 <input className="input-group form-control w-75"
@@ -29,7 +32,7 @@ class Topic extends React.Component{
             </> :
             <>
                 <Link to={`/editor/courses/${url.courseId}/modules/${url.moduleId}/lessons/${url.lessonId}/topics/${topic._id}`}
-                      className="nav-link mr-auto"> {topic.title + " "} </Link>
+                      className={`nav-link mr-auto ${active}`}> {topic.title + " "} </Link>
                 <FontAwesomeIcon onClick={()=> this.setState({editing:true})}
                                  icon={faPenAlt} className="topic-edit-btn"/>
             </>

@@ -1,5 +1,5 @@
-const widgetUrl = "https://afternoon-earth-72200.herokuapp.com/api/widgets"
-const topicsUrl = "https://afternoon-earth-72200.herokuapp.com/api/topics"
+const widgetUrl = "http://localhost:8080/api/widgets"
+const topicsUrl = "http://localhost:8080/api/topics"
 
 export const findWidgetsForTopic = (topicId) =>
      fetch(`${topicsUrl}/${topicId}/widgets`)
@@ -27,7 +27,7 @@ export const deleteWidgetService = (widgetId) => {
 
 
 export const  updateWidgetService = (widget) =>{
-
+   console.log(widget)
     return fetch( `${widgetUrl}/${widget.id}`,
         {
             method: "PUT",

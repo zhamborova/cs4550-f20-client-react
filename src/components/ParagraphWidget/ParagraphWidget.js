@@ -7,18 +7,21 @@ import "./ParagraphWidget.css"
 class ParagraphWidget extends React.Component {
 
     state={
-        className: null,
-        height: null,
-        html: null,
+        cssClass: "null",
+        height: "null",
+        html: "",
         id: "",
         name: "",
-        order: 0,
+        widgetOrder: 0,
         size: "",
-        src: null,
+        src: "",
         text: "",
         topicId: "",
-        type: "PARAGRAPH",
-        width: null,
+        widgetType: "PARAGRAPH",
+        width: "",
+
+
+
     }
 
     componentDidMount() {
@@ -27,33 +30,38 @@ class ParagraphWidget extends React.Component {
             text:this.props.widget.text,
             name: this.props.widget.name,
             size: this.props.widget.size,
-            type: this.props.widget.type,
-            order: this.props.widget.order,
+            widgetType: this.props.widget.widgetType,
+            widgetOrder: this.props.widget.widgetOrder,
             topicId: this.props.widget.topicId,
+            cssClass: this.props.widget.cssClass,
+            src: this.props.widget.src,
+            width: this.props.widget.width,
+            height: this.props.widget.height,
+            html: this.props.widget.html
         })
 
     }
     render(){
-        console.log(this.props.widget.name,this.props.widget.order, this.props.lastIndex)
+        console.log("state", this.state)
       return(<div className="paragraph-container">
             <div className="paragraph-menu d-flex mb-2">
                 <h3>Paragraph widget</h3>
                 {this.state.editing ?
                 <><select className=" widget-type form-control w-25 mb-2"
-                            value={this.state.type}
-                            onChange={(e) => this.setState({type: e.target.value})}>
+                            value={this.state.widgetType}
+                            onChange={(e) => this.setState({widgetType: e.target.value})}>
                         <option value="HEADING"> Heading</option>
                         <option value="PARAGRAPH">Paragraph</option>
                     </select>
 
-                    {this.props.widget.order !== 0 ?
+                    {this.props.widget.widgetOrder !== 0 ?
                         <FontAwesomeIcon icon={faArrowUp} className="widget-up-btn"
-                                         onClick={()=> this.props.moveWidgetUp(this.props.widget.order)}
+                                         onClick={()=> this.props.moveWidgetUp(this.props.widget.widgetOrder)}
                         />: null}
-                    {this.props.lastIndex !== this.props.widget.order ?
+                    {this.props.lastIndex !== this.props.widget.widgetOrder ?
                         <FontAwesomeIcon icon={faArrowDown} className="widget-down-btn"
                                          onClick={()=> {
-                                             this.props.moveWidgetDown(this.props.widget.order)}}
+                                             this.props.moveWidgetDown(this.props.widget.widgetOrder)}}
                         /> : null}
                     <FontAwesomeIcon icon={faCheck} className="widget-update-btn "
                                      onClick={() => {
