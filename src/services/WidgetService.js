@@ -27,7 +27,7 @@ export const deleteWidgetService = (widgetId) => {
 
 
 export const  updateWidgetService = (widget) =>{
-   console.log(widget)
+
     return fetch( `${widgetUrl}/${widget.id}`,
         {
             method: "PUT",
@@ -40,10 +40,11 @@ export const  updateWidgetService = (widget) =>{
 }
 
 
-export const moveWidgetUp = (index) => {
-    return fetch( `${widgetUrl}/moveUp/${index}`,
+export const moveWidgetUp = (widget) => {
+    return fetch( `${widgetUrl}/moveUp`,
         {
             method: "POST",
+            body: JSON.stringify(widget),
             headers: {
                 "content-type": "application/json"
             }
@@ -51,10 +52,11 @@ export const moveWidgetUp = (index) => {
 }
 
 
-export const moveWidgetDown = (index) => {
-    return fetch( `${widgetUrl}/moveDown/${index}`,
+export const moveWidgetDown = (widget) => {
+    return fetch( `${widgetUrl}/moveDown`,
         {
             method: "POST",
+            body: JSON.stringify(widget),
             headers: {
                 "content-type": "application/json"
             }

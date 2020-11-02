@@ -1,91 +1,19 @@
 import React from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowDown, faArrowUp, faCheck, faPenAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
 import "./HeadingWidget.css"
 
 
-class HeadingWidget extends React.Component {
-
-    state={
-        className: null,
-        height: null,
-        html: null,
-        id: "",
-        name: "",
-        order: 0,
-        size: "h1",
-        src: null,
-        text: "Lorem Ipsum",
-        topicId: "",
-        type: "HEADING",
-        width: null,
-    }
-
-    componentDidMount() {
-        this.setState({
-            id: this.props.widget.id,
-            text:this.props.widget.text,
-            name: this.props.widget.name,
-            size: this.props.widget.size,
-            type: this.props.widget.type,
-            order: this.props.widget.order,
-            topicId: this.props.widget.topicId,
-        })
-
-    }
-
-
-    render() {
-        return (<div className="heading-container">
-                <div className="heading-menu d-flex mb-2">
-
-
-                    <h3>Heading widget</h3>
-                    {this.state.editing ?
-                        <>
-                            <select className=" widget-type form-control w-25 mb-2"
-                                    value={this.state.type}
-                                    onChange={(e) => this.setState({type: e.target.value})}>
-                                <option value="HEADING"> Heading</option>
-                                <option value="PARAGRAPH">Paragraph</option>
-                            </select>
-                            {this.props.widget.order !== 0 ?
-                            <FontAwesomeIcon icon={faArrowUp} className="widget-up-btn"
-                                 onClick={()=> this.props.moveWidgetUp(this.props.widget.order)}
-                              />: null}
-
-                            {this.props.lastIndex !== this.props.widget.order ?
-                            <FontAwesomeIcon icon={faArrowDown} className="widget-down-btn"
-                                             onClick={()=> {
-                                                 this.props.moveWidgetDown(this.props.widget.order)}}
-                            /> : null}
-                            <FontAwesomeIcon icon={faCheck} className="widget-update-btn "
-                                             onClick={() => {
-                                                 this.setState({editing: false});
-                                                 this.props.updateWidget(this.state)
-                                             }}/>
-                            <FontAwesomeIcon icon={faTimes}
-                                             className="widget-delete-btn"
-                                             onClick={() =>  this.props.deleteWidget(this.state.id)} />
-
-                        </> :
-                        <>
-                            <FontAwesomeIcon onClick={() => this.setState({editing: true})}
-                                             icon={faPenAlt} className="widget-edit-btn"/>
-                        </>
-                    }
-                </div>
+const  HeadingWidget = ({text, name, size, setSize, setText,setName, editing}) => <>
                 <div className="heading-inputs mb-2">
-                    {this.state.editing ?
+                    {editing ?
                         <>
                             <input className="form-control heading-text mb-2"
                                    placeholder="Heading text"
-                                   value={this.state.text}
-                                   onChange={(e) => this.setState({text: e.target.value})}/>
+                                   value={text}
+                                   onChange={(e) => setText(e)}/>
 
                             <select className="form-control mb-2"
-                                    value={this.state.size}
-                                    onChange={(e) => this.setState({size: e.target.value})}>
+                                    value={size}
+                                    onChange={(e) => setSize(e)}>
 
                                 <option value={"h1"}>Heading 1</option>
                                 <option value={"h2"}>Heading 2</option>
@@ -96,23 +24,18 @@ class HeadingWidget extends React.Component {
                             </select>
                             <input className="widget-name form-control mb-2"
                                    placeholder="Widget Name"
-                                   value={this.state.name}
-                                   onChange={(e) => {
-                                       this.setState({name: e.target.value})
-                                   }}/></>
+                                   value={name}
+                                   onChange={(e) => setName(e)}
+                                   /></>
                         : null}
                 </div>
                 <div className="heading-preview">
-                    {this.state.editing ? <h4>Preview</h4> : null}
-                    <p>{this.state.text}</p>
+                    {editing ? <h4>Preview</h4> : null}
+                    <p>{text}</p>
 
                 </div>
 
-            </div>
-        )
+            </>
 
-
-    }
-}
 
 export default HeadingWidget;

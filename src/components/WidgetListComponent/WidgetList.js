@@ -12,32 +12,28 @@ import {
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import "./WidgetList.css"
+import {withState} from "../WidgetHoc/WidgetHOC";
 
-const selectWidget = (type, widget, deleteWidget, updateWidget, moveWidgetUp, moveWidgetDown,
-   lastIndex) => {
+const selectWidget = (type, widget, deleteWidget, updateWidget,
+                      moveWidgetUp, moveWidgetDown, lastIndex) => {
+    let component = null;
 
-  switch (type) {
+    switch (type) {
         case "HEADING":
-            return   <HeadingWidget widget={widget}
-                                    deleteWidget={deleteWidget}
-                                    updateWidget={updateWidget}
-                                    moveWidgetUp={moveWidgetUp}
-                                    moveWidgetDown={moveWidgetDown}
-                                    lastIndex={lastIndex}/>;
+            component = HeadingWidget;
+
         case "PARAGRAPH" :
-            return <ParagraphWidget widget={widget}
-                                    deleteWidget={deleteWidget}
-                                    updateWidget={updateWidget}
-                                    moveWidgetUp={moveWidgetUp}
-                                    moveWidgetDown={moveWidgetDown}
-                                    lastIndex={lastIndex}/>
+           component= ParagraphWidget;
 
     }
+    const NewComponent = withState(component,widget, deleteWidget,
+        updateWidget, moveWidgetUp, moveWidgetDown, lastIndex);
+    return <NewComponent />
 }
 
 const WidgetList = ({url, widgets, deleteWidget, updateWidget, createWidget, moveWidgetUp,
                         moveWidgetDown}) => {
-     console.log(widgets)
+
     return url.topicId ? <ul className="container m-auto">
             {widgets.map(widget =>
                     <li key={widget.id}>

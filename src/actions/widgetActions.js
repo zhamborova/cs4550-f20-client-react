@@ -7,22 +7,22 @@ export const WIDGET_UP = "WIDGET_UP"
 export const WIDGET_DOWN = "WIDGET_DOWN"
 
 
-export const moveWidgetUp = (dispatch, index) => {
-    widgetServices.moveWidgetUp(index).then(status =>
+export const moveWidgetUp = (dispatch, widget) => {
+    widgetServices.moveWidgetUp(widget).then(status =>
         dispatch({
         type: WIDGET_UP,
-        index
+        widget
       })
     )
 }
 
-export const moveWidgetDown = (dispatch, index) => {
-    widgetServices.moveWidgetDown(index).then(
+export const moveWidgetDown = (dispatch, widget) => {
+    widgetServices.moveWidgetDown(widget).then( status =>
     dispatch({
         type: WIDGET_DOWN,
-        index
+         widget
     })
-)
+  )
 }
 
 
@@ -38,6 +38,7 @@ export const deleteWidget =(dispatch, id)=>
 
 
 export const updateWidget =(dispatch, widget)=>{
+
     widgetServices.updateWidgetService(widget)
         .then(status => dispatch( {
                 type: UPDATE_WIDGET,
@@ -59,14 +60,12 @@ export const createWidgetForTopic=(dispatch, topicId)=>{
 export const findWidgetsForTopic = (dispatch,topicId) =>{
     widgetServices.findWidgetsForTopic(topicId)
         .then(widgets => {
-            console.log(widgets, "action")
 
             dispatch({
                 type: FIND_WIDGETS_FOR_TOPIC,
                 widgets
             })
-
-        }
+          }
         )
 
 }
