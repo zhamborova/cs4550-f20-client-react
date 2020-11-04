@@ -13,6 +13,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import "./WidgetList.css"
 import {withState} from "../WidgetHoc/WidgetHOC";
+import ListWidget from "../ListWidget/ListWidget";
 
 const selectWidget = (type, widget, deleteWidget, updateWidget,
                       moveWidgetUp, moveWidgetDown, lastIndex) => {
@@ -21,13 +22,24 @@ const selectWidget = (type, widget, deleteWidget, updateWidget,
     switch (type) {
         case "HEADING":
             component = HeadingWidget;
+            break;
 
         case "PARAGRAPH" :
            component= ParagraphWidget;
+            break;
 
+        case "LIST":
+            component = ListWidget;
+            break;
+
+        default:
+            component = ParagraphWidget
     }
+
+
     const NewComponent = withState(component,widget, deleteWidget,
         updateWidget, moveWidgetUp, moveWidgetDown, lastIndex);
+
     return <NewComponent />
 }
 
@@ -38,7 +50,8 @@ const WidgetList = ({url, widgets, deleteWidget, updateWidget, createWidget, mov
             {widgets.map(widget =>
                     <li key={widget.id}>
                         {selectWidget(widget.widgetType, widget, deleteWidget,
-                            updateWidget, moveWidgetUp, moveWidgetDown, widgets.length -1)}
+                            updateWidget, moveWidgetUp,
+                            moveWidgetDown, widgets.length -1)}
                     </li>
                 )
             }

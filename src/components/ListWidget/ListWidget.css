@@ -1,0 +1,13 @@
+.list-text{
+    height: 140px!important;
+
+}
+
+.list-bullets{
+    padding: 20px;
+
+}
+
+.list-bullets > li {
+    list-style: circle!important;
+}

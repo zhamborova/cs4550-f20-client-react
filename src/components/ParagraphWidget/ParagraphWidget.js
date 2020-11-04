@@ -2,8 +2,11 @@ import React from "react";
 import "./ParagraphWidget.css"
 
 
-const ParagraphWidget = ({text, name, setText, setName, editing}) =>{
-      return(<>
+class ParagraphWidget extends React.Component{
+
+    render() {
+        let {text, name, setText, setName, editing} = this.props
+        return (<>
             <div className="paragraph-inputs mb-2">
                 {editing ?
                     <>
@@ -25,7 +28,9 @@ const ParagraphWidget = ({text, name, setText, setName, editing}) =>{
 
             </div>
         </>
-     )
+    )
+}
+
 }
 
 export default ParagraphWidget;

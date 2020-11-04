@@ -10,17 +10,18 @@ const initialState = {
 }
 
 const moveUp  = (list, w) => {
+    console.log(w)
     let index = w.widgetOrder;
     let temp = list[index-1];
 
     temp.widgetOrder = index;
     let widget =  list[index]
     widget.widgetOrder = index-1;
-
-    list[index-1] = list[index];
+    widget.editing = true;
+    list[index-1] = widget;
     list[index] = temp;
 
-
+    console.log(list)
     return [...list];
 
 }
@@ -32,8 +33,8 @@ const moveDown = (list, w) => {
     temp.widgetOrder = index;
     let widget =  list[index]
     widget.widgetOrder = index+1;
-
-    list[index+1] = list[index];
+    widget.editing = true;
+    list[index+1] = widget;
     list[index] = temp;
 
     return [...list];

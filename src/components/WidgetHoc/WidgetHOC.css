@@ -12,3 +12,7 @@
 .widget-text{
     min-height: 100px;
 }
+
+.widget-title{
+    text-transform: capitalize;
+}

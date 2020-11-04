@@ -29,15 +29,6 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
 
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.state.widgetOrder !== widget.widgetOrder){
-            this.setState({widgetOrder:widget.widgetOrder} )
-        }
-        if(prevState.editing !== widget.editing){
-            this.setState({editing:widget.editing})
-        }
-    }
-
     setSize =(e) => this.setState({size: e.target.value})
     setText =(e) => this.setState({text: e.target.value})
     setName =(e) => this.setState({name: e.target.value})
@@ -49,13 +40,14 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
 
         return <div className="widget-container">
                <div className="widget-menu d-flex mb-2">
-                <h3>{this.state.widgetType.toLowerCase()} widget</h3>
+                <h3 className="widget-title">{this.state.widgetType.toLowerCase()} widget</h3>
                 {this.state.editing ?
                     <><select className=" widget-type form-control w-25 mb-2"
                               value={this.state.widgetType}
                               onChange={(e) => this.setState({widgetType: e.target.value})}>
                         <option value="HEADING"> Heading</option>
                         <option value="PARAGRAPH">Paragraph</option>
+                        <option value="LIST">List</option>
                     </select>
 
                         {this.state.widgetOrder > 0 ?
@@ -83,11 +75,11 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
                 }
             </div>
 
-            <Component setSize= {this.setSize}
-                       setText = {this.setText}
-                       setName = {this.setName}
-                       name={this.state.name} text ={this.state.text}
-                       size={this.state.size} editing={this.state.editing}/>
+        <Component setSize= {this.setSize}
+                                  setText = {this.setText}
+                                  setName = {this.setName}
+                                  name={this.state.name} text ={this.state.text}
+                                  size={this.state.size} editing={this.state.editing}/>
 
         </div>
     }
