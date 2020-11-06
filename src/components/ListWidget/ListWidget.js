@@ -5,18 +5,20 @@ import "./ListWidget.css"
 class ListWidget extends React.Component{
 
 
-   splitText = (txt) =>{
+   splitText = (txt, type) =>{
+       const ListCustom = `${type}`;
 
-        return <ul className="list-bullets">
+
+        return <ListCustom className="list-bullets">
             {txt.split("\n").map(tx =>
                 <li>{tx}</li>
             )}
-             </ul>
+             </ListCustom>
     }
 
 
  render() {
-     let {text, name, size, setSize, setText,setName, editing} = this.props
+     let {text, name, setText,setName, editing, listType, setListType } = this.props
         return  <>
             <div className="list-inputs mb-2">
                 {editing ?
@@ -30,12 +32,22 @@ class ListWidget extends React.Component{
                                placeholder="Widget Name"
                                value={name}
                                onChange={(e) => setName(e)}
-                        /></>
+                        />
+                        <select className="form-control mb-2"
+                                value={listType}
+                                onChange={(e) => setListType(e)}>
+
+                            <option value={"ul"}>Unordered List</option>
+                            <option value={"ol"}>Ordered List</option>
+
+                        </select>
+
+                        </>
                     : null}
             </div>
             <div className="list-preview">
                 {editing ? <h4>Preview</h4> : null}
-                {this.splitText(text)}
+                {this.splitText(text, listType)}
 
             </div>
 

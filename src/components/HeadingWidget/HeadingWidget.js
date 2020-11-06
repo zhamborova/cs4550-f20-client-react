@@ -4,6 +4,12 @@ import "./HeadingWidget.css"
 
 class HeadingWidget extends React.Component {
 
+    display = (text,size) =>{
+
+        const Heading = `${size}`;
+        return <Heading>{text}</Heading>
+    }
+
     render() {
         let {text, name, size, setSize, setText,setName, editing} = this.props;
         return <>
@@ -35,7 +41,7 @@ class HeadingWidget extends React.Component {
             </div>
             <div className="heading-preview">
                 {editing ? <h4>Preview</h4> : null}
-                <p>{text}</p>
+                {this.display(text,size)}
 
             </div>
 

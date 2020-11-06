@@ -20,7 +20,8 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
             width: widget.width,
             height: widget.height,
             html: widget.html,
-            editing: widget.editing
+            editing: widget.editing,
+            listType: widget.listType
 
         }
 
@@ -32,7 +33,7 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
     setSize =(e) => this.setState({size: e.target.value})
     setText =(e) => this.setState({text: e.target.value})
     setName =(e) => this.setState({name: e.target.value})
-
+    setListType = (e) => this.setState({listType:e.target.value})
 
 
 
@@ -75,9 +76,10 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
                 }
             </div>
 
-        <Component setSize= {this.setSize}
+        <Component setSize= {this.setSize} setListType={this.setListType}
                                   setText = {this.setText}
                                   setName = {this.setName}
+                                  listType={this.state.listType}
                                   name={this.state.name} text ={this.state.text}
                                   size={this.state.size} editing={this.state.editing}/>
 
