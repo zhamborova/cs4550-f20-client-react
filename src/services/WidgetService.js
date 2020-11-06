@@ -1,6 +1,7 @@
 const widgetUrl = "https://afternoon-earth-72200.herokuapp.com/api/widgets"
 const topicsUrl = "https://afternoon-earth-72200.herokuapp.com/api/topics"
 
+//comment
 export const findWidgetsForTopic = (topicId) =>
      fetch(`${topicsUrl}/${topicId}/widgets`)
         .then(response => response.json())
