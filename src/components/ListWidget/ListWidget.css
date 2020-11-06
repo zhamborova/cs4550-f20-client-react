@@ -3,11 +3,16 @@
 
 }
 
-.list-bullets{
+.list-bullets {
     padding: 20px;
 
 }
 
-.list-bullets > li {
+.list-bullets.ol > li {
+    list-style: square!important;
+}
+
+.list-bullets.ul > li {
     list-style: circle!important;
 }
+

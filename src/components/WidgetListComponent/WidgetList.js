@@ -14,6 +14,7 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import "./WidgetList.css"
 import {withState} from "../WidgetHoc/WidgetHOC";
 import ListWidget from "../ListWidget/ListWidget";
+import ImageWidget from "../ImageWidget/ImageWidget";
 
 const selectWidget = (type, widget, deleteWidget, updateWidget,
                       moveWidgetUp, moveWidgetDown, lastIndex) => {
@@ -31,6 +32,11 @@ const selectWidget = (type, widget, deleteWidget, updateWidget,
         case "LIST":
             component = ListWidget;
             break;
+
+        case "IMAGE":
+            component = ImageWidget;
+            break;
+
 
         default:
             component = ParagraphWidget

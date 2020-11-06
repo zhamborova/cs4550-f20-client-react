@@ -34,7 +34,7 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
     setText =(e) => this.setState({text: e.target.value})
     setName =(e) => this.setState({name: e.target.value})
     setListType = (e) => this.setState({listType:e.target.value})
-
+    setSrc = (e) => this.setState({src:e.target.value})
 
 
         render(){
@@ -45,10 +45,14 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
                 {this.state.editing ?
                     <><select className=" widget-type form-control w-25 mb-2"
                               value={this.state.widgetType}
-                              onChange={(e) => this.setState({widgetType: e.target.value})}>
+                              onChange={(e) => this.setState(
+                                  {widgetType: e.target.value},()=>{
+                                      updateWidget(this.state)
+                                  })}>
                         <option value="HEADING"> Heading</option>
                         <option value="PARAGRAPH">Paragraph</option>
                         <option value="LIST">List</option>
+                        <option value="IMAGE">Image</option>
                     </select>
 
                         {this.state.widgetOrder > 0 ?
@@ -79,6 +83,8 @@ export const withState = (Component,widget, deleteWidget, updateWidget,
         <Component setSize= {this.setSize} setListType={this.setListType}
                                   setText = {this.setText}
                                   setName = {this.setName}
+                                  setSrc = {this.setSrc}
+                                  src={this.state.src}
                                   listType={this.state.listType}
                                   name={this.state.name} text ={this.state.text}
                                   size={this.state.size} editing={this.state.editing}/>

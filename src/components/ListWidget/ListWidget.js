@@ -9,7 +9,7 @@ class ListWidget extends React.Component{
        const ListCustom = `${type}`;
 
 
-        return <ListCustom className="list-bullets">
+        return <ListCustom className={`list-bullets ${type}`}>
             {txt.split("\n").map(tx =>
                 <li>{tx}</li>
             )}
